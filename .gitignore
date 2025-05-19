@@ -1,0 +1,11 @@
+.obsidian/
+
+.obsidian/workspace-mobile.json
+.obsidian/workspace.json
+.obsidian/app.json
+
+.smart-env/
+.stfolder/
+
+.trash/
+.DS_Store

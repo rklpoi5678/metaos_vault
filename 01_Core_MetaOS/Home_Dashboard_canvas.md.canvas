@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"meta-os","type":"text","text":"🌌 META ARCHITECT OS\nHome.md.md","x":-75,"y":-200,"width":300,"height":100},
+		{"id":"flowengine","type":"file","file":"04_Creation/00_Projects/00_MetaOS/00_Flow_Engine_2025/00_OV__FlowEngine2025.md","x":600,"y":-360,"width":200,"height":260},
+		{"id":"execution","type":"text","text":"실행","x":300,"y":-180,"width":150,"height":60},
+		{"id":"philosophy","type":"text","text":"생각","x":-125,"y":-330,"width":150,"height":60},
+		{"id":"design","type":"text","text":"설계","x":125,"y":-330,"width":150,"height":60},
+		{"id":"feedback","type":"text","text":"피드백","x":-125,"y":-25,"width":150,"height":60},
+		{"id":"return_philosophy","type":"text","text":"반복(되돌림)","x":-350,"y":-330,"width":150,"height":60},
+		{"id":"output","type":"text","text":"출력","x":-350,"y":-25,"width":150,"height":60},
+		{"id":"plr","type":"file","file":"04_Creation/00_Projects/00_MetaOS/02_PLR_Marketplace/00_OV__PLR MarketPlace.md","x":600,"y":80,"width":200,"height":270},
+		{"id":"pipi","type":"file","file":"04_Creation/00_Projects/00_MetaOS/01_PIPI_Project/00_OV__PiPiService.md","x":920,"y":-360,"width":200,"height":270},
+		{"id":"experiment","type":"text","text":"실험","x":150,"y":-20,"width":150,"height":50},
+		{"id":"afa080ab7a34f8ab","type":"text","text":"Connection_filed(인식)","x":-239,"y":144,"width":239,"height":60},
+		{"id":"6dc90171d89ff16c","type":"text","text":"Core_MetaOS(초월-자신)","x":-500,"y":144,"width":225,"height":60},
+		{"id":"6b3517e38999e9c8","type":"text","text":"Problem_Domain(문제)","x":50,"y":144,"width":250,"height":60},
+		{"id":"183732525f5b7648","type":"text","text":"Creation(창조,개발)","x":350,"y":144,"width":200,"height":60}
+	],
+	"edges":[
+		{"fromNode":"flowengine","fromSide":"bottom","toNode":"plr","toSide":"top"},
+		{"id":"9c0b09a006842164","fromNode":"flowengine","fromSide":"right","toNode":"pipi","toSide":"left"},
+		{"id":"e13565f4379edf8d","fromNode":"philosophy","fromSide":"right","toNode":"design","toSide":"left"},
+		{"id":"0c2870b0e2c2b00d","fromNode":"design","fromSide":"right","toNode":"execution","toSide":"top"},
+		{"id":"dbb2b2b8ebbe9973","fromNode":"execution","fromSide":"bottom","toNode":"experiment","toSide":"right"},
+		{"id":"529d6ad71ab3ae8b","fromNode":"feedback","fromSide":"left","toNode":"output","toSide":"right"},
+		{"id":"d93ffb1528ed708c","fromNode":"experiment","fromSide":"left","toNode":"feedback","toSide":"right"},
+		{"id":"8f8386e29604c36a","fromNode":"output","fromSide":"top","toNode":"return_philosophy","toSide":"bottom"},
+		{"id":"7dd902fc7ad81430","fromNode":"pipi","fromSide":"bottom","toNode":"plr","toSide":"right"},
+		{"id":"ce803d04de46513c","fromNode":"return_philosophy","fromSide":"bottom","toNode":"meta-os","toSide":"left"},
+		{"id":"df0b5881970ce0e7","fromNode":"meta-os","fromSide":"top","toNode":"philosophy","toSide":"bottom"},
+		{"id":"8c0d77af75fa1d32","fromNode":"6dc90171d89ff16c","fromSide":"right","toNode":"183732525f5b7648","toSide":"left"}
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"796432228b5d6051","type":"text","text":"정보 수집 시작","x":-120,"y":-180,"width":250,"height":60},
+		{"id":"d0bf50dcd089c9d0","type":"text","text":"수동 클리핑 or 삼각편대 탐색\nLiner / Copilot / Gemini","x":-155,"y":-80,"width":320,"height":100},
+		{"id":"86e3768a6c3b5726","type":"text","text":"Flow 구조를 통한 재정렬  \n내 것화","x":-100,"y":920,"width":280,"height":80},
+		{"id":"4ac6e6a4d1159955","type":"text","text":"DIKI 변환 흐름 적용\n정보 -> 지식 -> 통찰 -> 실행","x":-400,"y":320,"width":280,"height":80},
+		{"id":"3fdd4e53959436e7","type":"text","text":"의미 부여 단계\n나의 생각 + AI 인사이트","x":-400,"y":440,"width":280,"height":80},
+		{"id":"27c1c8fd5d9b57f5","type":"text","text":"옵시디언 저장 및 정제\n주제/프레임/상태 기준으로 배치","x":-400,"y":560,"width":280,"height":80},
+		{"id":"2441a6aabe26c1d8","type":"text","text":"ToLENS 분류  \n프로젝트/실험/루틴 등 적용용","x":-400,"y":680,"width":280,"height":80},
+		{"id":"b253b8bc2ebd9213","type":"text","text":"실행 or 실험 노트로 전환  \n실천 + 피드백 기록","x":-400,"y":800,"width":280,"height":80},
+		{"id":"3dfe74944a2c6978","type":"text","text":"Inbox 분류 저장","x":-400,"y":80,"width":280,"height":80},
+		{"id":"5f2ced32a6fb60f4","type":"text","text":"D.I.S.C.O.V.E.R 구조화 템플릿 적용","x":-400,"y":200,"width":280,"height":80}
+	],
+	"edges":[
+		{"id":"b85f58295369f7ca","fromNode":"796432228b5d6051","fromSide":"bottom","toNode":"d0bf50dcd089c9d0","toSide":"top"},
+		{"id":"93d2979e50367770","fromNode":"d0bf50dcd089c9d0","fromSide":"left","toNode":"3dfe74944a2c6978","toSide":"top"},
+		{"id":"16ab8bc2fee798ae","fromNode":"3dfe74944a2c6978","fromSide":"bottom","toNode":"86e3768a6c3b5726","toSide":"left"},
+		{"id":"b461aa66b40d6a2e","fromNode":"86e3768a6c3b5726","fromSide":"right","toNode":"d0bf50dcd089c9d0","toSide":"right"}
+	]
+}
