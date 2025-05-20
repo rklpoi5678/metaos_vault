@@ -54,8 +54,46 @@ WSL(Ubuntu)에서 빌드 작업, Windows에서 expo start 실행을 병행
 
 eas build , expo prebuild, gradlew -> 빌드 및 서명 작업 (Ubuntu-WSL)
 expo start, UI개발,JS코드 수정 -> Metro 실행 및 Dev Client 연결 (Window)
+! 추가로 pnpm 워크스페이스면 앱 프로젝트에 pnpm exec expo start 처럼 사용한다.
+! 추가로 --dev client를 설정을 넣고 그전에 eas build를 거쳐야된다. 또한 --profile preview는 Expo Go에서 테스트 가능하도록 빌드되기때문에 development나 production로 가야한다.
 
 클라우드와 로컬빌드의 차이점?
 클라우드 빌드는 환경 일관성이 존재, 항상 클린 빌드, PR 마다 자동 빌드 가능(깃허브 연동), 자동 관리 + 암호화 저장, 코드 서명 포함 최적 빌드, Windows에서도 ios빌드 가능, 웹이서 기록/공유 가능
 
 다작이거나 혼자개발하거나 Ubuntu WSL  환경을 이미 잘 구성했거나 현재 ios빌드는 필요없고 빌드 결과물을 직접 컨트롤하고자 하여서 로컬빌드를 사용한다.
+
+### 프리뷰 빌드 사전 검증 루틴 설계
+명시적으로 스크립트 검사 : 커맨드 실행 전 명령을 CI혹은 로컬 prebuild 단계에 강제로 삽입한다.
+```bash
+pnpm dlx expo doctor
+pnpm dlx expo config --type public --json
+pnpm dlx expo install
+pnpm dlx tsc --noEmit   # 타입스크립트 에러 사전 체크
+pnpm lint
+```
+
+### .apk Android Studio 내장
+1. 패키지 구조, 메타데이터 확인 : android stuido More Actions 에서 debug apk항목선택 여기서 리소스 누락및 manifest 설정 확인 등 가능하다.
+2. 디바이스/ 에뮬레이터에 설치: (bash)adb devices로 연결된 기기 확인 후 adb install app-release.apk(빌드된 .apk 이름)
+
+### STEP 3. 디바이스/에뮬레이터에 설치
+
+#### A. 실기기 연결 시:
+
+`adb devices     # 연결된 기기 확인 adb install app-release.apk`
+
+#### B. 에뮬레이터 설정 (Android Studio)
+
+1. **Device Manager > Create Device**
+2. API 30 이상 선택 → 실행
+3. 실행된 상태에서 `adb install app-release.apk` 실행
+4. [https://developer.android.com/studio/releases/platform-tools](https://developer.android.com/studio/releases/platform-tools)해당 platform-tools필요
+
+### STEP4 실시간 로그 확인(디버깅)
+ A.Logcat(Android Studio)
+ View > Tool Windews > Logcat 
+ 태그: ReactNative, expo, RN 등 필터링
+ B. CLI로그 확인
+```bash
+ adb logcat *:S ReactNative:V ReactNativeJS:V Expo:V
+```
