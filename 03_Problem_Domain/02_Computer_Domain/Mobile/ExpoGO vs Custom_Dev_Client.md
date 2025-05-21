@@ -40,10 +40,3 @@ pnpm exec expo start --dev-client
 배포 전 빌드
 pnpm exec eas build -p android
 
-| 상황               | 추천 방법                                                  | 명령어                          |
-| ---------------- | ------------------------------------------------------ | ---------------------------- |
-| 단순 빠른 `.apk` 테스트 | ✅ `expo run:android`                                   | `pnpm exec expo run:android` |
-| dev client 테스트   | ✅ `eas build --local -p android --profile development` | + `buildType: apk`           |
-| CI나 배포도 고려       | `eas build -p android --profile preview`               | + `buildType: apk`           |
-오류 디버깅용
->adb logcat *:S ReactNative:V ReactNativeJS:V Expo:V
