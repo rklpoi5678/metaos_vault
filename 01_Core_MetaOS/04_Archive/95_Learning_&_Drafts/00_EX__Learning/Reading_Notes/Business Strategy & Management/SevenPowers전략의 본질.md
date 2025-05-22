@@ -539,5 +539,6 @@ PLC의 Introduction보다 휠씬 더 앞단의 개념이다. origination 단계�
 - Superior - 잉여현금흐름 (Free Cash Flow)의 증가
 - Significant - 눈에 띌 정도로 개선되는 현금 흐름
 - Sustainable - 위 현금흐름과 잉여현금흐름이 증가하는 요소를 경쟁자가 따라서 취득할 수 없어야 한다(arbitrage)
+
 - Superior + Significant = Benefit
 - Sustainable = Barrier

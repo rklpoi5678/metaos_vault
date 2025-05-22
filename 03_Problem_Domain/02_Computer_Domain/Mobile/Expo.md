@@ -74,19 +74,29 @@ apk 설치
 > adb install -r build-\*.apk
 
 ### eas.submit이있다면 
-eas.json 설정후
-
- 내부 테스터(internal) 트랙으로 업로드
+eas.json 설정 후  내부 테스트(internal) 트랙으로 업로드
 eas build --profile preview --platform android (클라우드 이용)
  최신 빌드 파일(.aab) ID를 자동 검색해 제출
 eas submit --profile preview --platform android --latest
-
 ### 로컬 eas.submit
 로컬로 할시 .aab파일을 구분하기 쉽게 폴더로 넣고
 eas submit -p android --track internal --service-account-key ./google-service-account.json --path ./build/app-release.aab
  
  or 빌드가 끝난 .aab를 Google Play Console에 제출
 pnpm exec eas submit --platform android --profile production --path dist/*.aab
+
+### 로컬이 더빠르긴 하다.
+왜 원격 빌드가 더 느리게 느껴질까나?
+
+### 환경변수 확인
+eas env:exec \[ENVIRONMENT\] \[Bash Commend(키값)\]
+으로 빌드전 환경변수가 로드되었는지 확인해볼수있다.
+
+EAS 서버의 환경 변수를 로컬.env로 가져올 수 있다. eas env:pull
+민감한 키는 .env에 넣어두고 eas.json에는 삽입금지
+Secret값은 Gradle,IOS의 Info.plist에만 주입되며 Google Maps Android API같은 키들은 민감한데 이것들은 Gradle이나 Info.plist에 설정된 API키를 통해 인증하고 작동하기때문에 Secret값으로 넣어두면 네이티브 세팅에 올바르게 주입되어 앱 내에서 지도 기능이 정상적으로 작동한다.
+
+환경변수는 빌드 프로세스 중에 정적으로(하드코딩된 값으로) 번들에 포함된다. 한 번 빌드가 완료되면 그 빌드 결과물은 그 시점의 환경 변수 값으로 고정된다. 따라서 변경 사항을 앱에 반영하려면 새로운 빌드를 수행하여야 한다.
 ## 결론
 Expo Managed Workflow -> AndroidManifest.xml을 직접 수정할 필요없다. 대신 app.json에서 설정 가능하다
 Expo Bare Workflow -> 직접 AndroidManifext.xml을 수정 가능
