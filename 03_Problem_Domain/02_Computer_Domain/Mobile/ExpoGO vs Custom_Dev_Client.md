@@ -30,6 +30,21 @@ EAS(Build)을 통해 클라우드에서 직접 빌드해서 만들어내며, 기
 
 `AdMob`, `Map`, `Camera`, `Push`, `Location`, `sqlite`, `reanimated`, `gesture-handler` 등 하나라도 있으면 무조건 **Expo Go 탈출**
 
+## EAS 워크플로우
+
+pnpm exec expo-doctor로 사전에 한번 점검해보기
+(패키지 메타데이터 관련 문제가 뜬다면 실제 기능상의 오류라기보다 해당 패키지들이 공식적으로 메타데이터를 제공하지 않기 때문에 발생하는 경고이며 꼭 해결해야 하는 문제는 아니다. 필요하면 package.json 설정에 관련 옵션을 추가하여 무시할 수 있다)
+
+Expo는 기본적으로 CNG(Continuous Native Generation)방식을 사용하여 최신 구성을 적용한다. 다만 Native 폴더가 있고 app.config.js or app.json에 네이티브 설정(orientation, splash, ios, android, plugin 등)이 있다면 **EAS Build또는 Prebuild에서 이 설정들을 자동으로 동기화하지 않음**
+
+CNG 기능을 사용할경우 native 폴더는 EAS Build 시점에 자동으로 생성되고 최신 구성 값이 반영된다. 네이티브 폴더를 직접 관리 및 커스터마이징 할 계획이면 이 경고는 "단지 자동 동기화되지 않는다"는 안내이므로 무시가능하다.
+
+prebuild하고 이후에 다시 appID나 app.config.js같은 내용이나 새로운 내용으로 수정했다면 --clean을 해야한다.
+
+이후 
+pnpm exec expo start --no-dev --minify
+릴리즈 번들처럼 실행하는 테스트 모드로 JS에러가 있는지 확인
+
 dev client 한 번 설치 후
 pnpm exec expo run:android
 
@@ -40,3 +55,6 @@ pnpm exec expo start --dev-client
 배포 전 빌드
 pnpm exec eas build -p android
 
+## 디버깅
+adb logcat *:S AndroidRuntime:E
+adb -s R39M60042SM logcat *:S ReactNative:V ReactNativeJS:V Expo:V
