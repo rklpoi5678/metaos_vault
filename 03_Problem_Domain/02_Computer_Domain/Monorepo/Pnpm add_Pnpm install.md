@@ -3,7 +3,9 @@ package.json,pnpm-lock.yaml 에 적힌 부품을 한 번에 몰아서 가져오�
 
 ## pnpm add <패키지명>
 새로운 부품 하나가 필요하다 가정할때, pnpm add를 하면 package.json에 자동으로 추가해줍니다. 아무 인수 없이 pnpm add를 실행하면 에러가 발생한다.
-
+### 추가로
+npm의 npx 처럼 npm의 npx라는 도구를 사용해서 부품을 임시로 불러올때 pnpm npx으로 중복을 사용하면 안된다.
+pnpm에는 npm npx와 같은 dlx를 사용해야한다 - pnpm dlx
 ## 의존성
 pnpm의 격리구조로 전역 저장소(virtual store)를 사용하여 각 패키지의 의존성을 별도로 관리하면서도 공유 가능한 부분은 링크를 통해 재사용한다. 서로 다른 버전의 패키지가 존재하더라도, pnpm은 문제를 최소화하는 방향으로 작동합니다.
 
