@@ -41,9 +41,9 @@ Cloud Console -> API & Services -> Credentials -> "Android 앱제한"에 추가
 
 프로덕션빌드시
 EAS 환경변수에 실 ID등록 (eas secret:push)
-eas secret:push --name EXPO_PUBLIC_GOOGLE_MOBILE_ADS_APP_ID --value "ca-app-pub-5223844528723811~4155309336"
-eas secret:push --name EXPO_PUBLIC_GOOGLE_IOS_ADS_APP_ID --value "ca-app-pub-5223844528723811~4155309336"
-eas secret:push --name EXPO_PUBLIC_GOOGLE_ANDROID_GEO_API_KEY --value "AIzaSyD8hR1hWUPqC17a20FlZ6p8K7RLFLWH8b0"
+eas secret:push --name EXPO_PUBLIC_GOOGLE_MOBILE_ADS_APP_ID --value "ca-app-pub-52..."
+eas secret:push --name EXPO_PUBLIC_GOOGLE_IOS_ADS_APP_ID --value "ca-app-pub-5...."
+eas secret:push --name EXPO_PUBLIC_GOOGLE_ANDROID_GEO_API_KEY --value "AIz..."
 
 `eas secret:push` 명령어는 Expo의 EAS CLI 도구에서 제공하는 기능으로, 로컬에 있는 환경 변수 파일(예: `.env`)에서 비밀 정보를 읽어 Expo 빌드 서버에 안전하게 저장하는 역할을 합니다. 이를 통해 API 키나 기타 민감한 데이터를 소스 코드에 직접 포함시키지 않고도 빌드 환경에 주입할 수 있습니다.
 This command is deprecated. Use eas env:push instead.(참고)
