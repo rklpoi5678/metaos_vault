@@ -46,6 +46,7 @@ import { something } from "libray" // node-module에서 찾음
 // Bundler 방식 (웹팩 같은 번들러가 사용하는 방식 ) package.json의 "exports"와"imports"를 지원
 import { something} from "library" // 번들러가 최적화된 방식으로 찾음
 ```
+> node방식과 번들러 방식의 명확한 차이점: 서버(node.js)/브라우저(web) | 개별 파일 실행/ 하나의 번들 파일로 실행
 ```Ts
 // classic  ( typescriptv1.6이전 방식 ) 파일 확장자를 명확히 지정해야 함
 import { something} from ".library.ts" // 번들러가 최적화된 방식으로 찾음
