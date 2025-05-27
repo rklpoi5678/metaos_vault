@@ -40,6 +40,11 @@ main()
 - setting 실행 npx prisma db seed
 - 위 명령어를 실행하면 seed.ts 파일이 실행되어 데이터베이스에 기본 데이터가 삽입된다.
 
+
+### 첫 실행은 npx prisma init
+데이터베이스 스키마 정보 연동을 위한 환경변수 설정에 필요한 .env 파일도 알아서 생성해준다.
+또한 schema.prisma파일이 새로 생성됨
+
 ### prisma migrate dev
 prisma db push는 데이터 손실 없이 스키마를 변경하는 방식 Prisma는 기존데이터가 있는 상태에서 필수(required)컬럼을 추가할 수 없기 때문에 오류를 발생시킴
 현재처럼 필수 컬럼을 추가할 때는 prisma migrate dev를 사용하는 것이 더안전함
