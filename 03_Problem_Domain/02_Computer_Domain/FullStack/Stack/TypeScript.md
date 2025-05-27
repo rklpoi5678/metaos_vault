@@ -26,7 +26,27 @@ ts-node myfile.ts # 변환 없이 즉시 실행!
 > TS를 변환하지 않고 즉시 실행할 수 있도록 도와주는 도구이다.
 > 개발 속도를 빠르게 하고, 테스트를 쉽게 할 수 있다.
 
-+ 추가로 prisma랑 사용하면 아주 맛있다.
++ 추가로 prisma랑 사용하면 아주 맛있다. (다만 ts-node는 nodev2.0이상부터 정상적으로 동작하질 않으므로 tsx를 사용한다.)
+
+## tsc, ts-node, tsx 차이점
+### tsc (TypeScript Compiler)
+
+자바스크립트로 변환만 함 (실행 기능 없음)
+
+### ts-node
+
+(TypeScript 실행기 - 느리고 비효율적)
+
+- `.ts` 파일을 실행할 수 있음 (컴파일 + 실행)
+- 하지만 느리고, ESM(import/export) 지원이 부족함
+
+### tsx
+
+(최신 TypeScript 실행기 - 빠르고 효율적)
+
+- `.ts` 파일을 실행할 수 있음 (컴파일 + 실행)
+- ts-node보다 빠르고 ESM 지원이 뛰어남
+- 개발 중 실행할 때 가장 추천됨
 
 ## tsconfig.json
 
