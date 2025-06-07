@@ -14,6 +14,9 @@ adb logcat AndroidRuntime:E
 아니면 터미널에서
 npx react-native log-android
 
+디버깅용
+adb logcat | grep "error"
+
 > long: 모든 메타데이터 필드와 별도의 메시지를 빈 줄과 함께 표시
 > brief: 메지지를 발그바는 프로세스의 우선순위, 태그 , PID를 표시
 > color: 각 우선순위 수준을 다른 색상으로 표시한다.
