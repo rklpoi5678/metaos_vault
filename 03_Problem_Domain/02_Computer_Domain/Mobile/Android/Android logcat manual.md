@@ -8,8 +8,9 @@ Logcat은 안드로이드 시스템 및 앱에서 발생하는 로그 메시지�
 
 adb logcat --pid=11429 -v long -v color 처럼 지정을 하면 각 속성마다 맞게 설정해준다.
 or
-adb logcat S:* ReactNative:V ReactNativeJs:V Expo:V
-
+adb logcat *:S ReactNative:V ReactNativeJS:V Expo:V
+or
+adb logcat AndroidRuntime:E
 아니면 터미널에서
 npx react-native log-android
 
