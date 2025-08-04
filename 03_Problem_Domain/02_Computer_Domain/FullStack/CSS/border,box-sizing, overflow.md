@@ -6,6 +6,10 @@ border: 1px soild #fbfbfb
 
 /* 박스 모서리의 곡선을 줄수있으며 이것을로 동그란 박스를 만들수있다. */
 border-radius: 36px 
+border-radius: 9999px /* 이렇게 큰값을 지정하면 알약형태ㄱ */
+
+/* 퍼센트 사용 */
+border-radius: 50% /*50%만큼 둥글게 이러면 타원형태가 된다.*/
 ```
 
 
