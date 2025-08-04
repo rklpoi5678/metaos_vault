@@ -38,3 +38,6 @@ link rel(릴레이션)"stylesheet" href="(css파일위치)"
 
 예를 들어 .zzim-button 보다 .wishlist-button이라고 이름을 바꿀수있다.
 이렇게 하면 클래스 이름만 봐도 어떤 것인지 대충 짐작할 수 있기에 굳이 코멘트를 달지않아도된다.
+
+## 여담
+CSS에 관한 오래된 밈으로 CSS is awesome 라는건데 이건 CSS는 항상 깨진다는 농담
