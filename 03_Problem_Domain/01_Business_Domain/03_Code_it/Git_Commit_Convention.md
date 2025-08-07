@@ -75,10 +75,11 @@ Resolved: #110
 
 ## 좋은 Commit 예시
 ```Git
-feat(auth): 회원 가입 기능 구현
+feat(auth): 회원 가입 기능 구현 //새로운기능구현(회원가입): (:다음 한칸띄우기) 명령조
+// Git Commit Convention 규칙의 본문규칙중 하나인 제목과 본문 한칸띄우기
+SMS, 이메일 중복확인 API 개발 //body
 
-SMS, 이메일 중복확인 API 개발
-
-Resolves: #123
-
+Resolves: #123 //footer 이슈트래킹을 위한 ID등을 참조하기위한 값
+Ref: #456
+Related to: #48, #45
 ```
