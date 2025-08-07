@@ -117,3 +117,14 @@ url 링크는 아래처럼
 
 ```
 ![[Pasted image 20250807232310.png]](결과)
+```md
+/** 띄어쓰기 후 괄호안에도 빈괄호시 띄어쓰기 주의 */
+- [ ] 운동 하기
+- [x] 강의 듣기
+```
+![[Pasted image 20250807232752.png]]
+
+## 글자색상
+`html`태그를 이용하여 작성이 가능하다
+<span style="color=red">red</span>
+<span style="color:#d3d3d3"> #d3d3d3</span>
