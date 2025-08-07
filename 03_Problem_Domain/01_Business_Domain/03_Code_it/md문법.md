@@ -126,5 +126,11 @@ url 링크는 아래처럼
 
 ## 글자색상
 `html`태그를 이용하여 작성이 가능하다
-<span style="color=red">red</span>
-<span style="color:#d3d3d3"> #d3d3d3</span>
+
+`
+<span style="color:red">red</span>
+<span style="color:#d3d3d3">#d3d3d3</span>
+<span style="color:rgb(245, 235, 13)">rgb(245, 235, 13)</span>
+
+
+
