@@ -54,7 +54,46 @@ __굵게__
 _기울여 쓰기_
 *기울여 쓰기* /** 동일 편한거 사용 */
 ~취소선~
-~~취소선~~ /**  */
+~~취소선~~ /** 동일 */
 ```
-~취소선~
-~~취소선~~
+![[Pasted image 20250807230732.png]](결과)
+
+인용문 `>` 사용
+```markdown
+> 인용문 작성하기
+> - 작성자
+
+> 인용문 작성하기
+>> (>)의 개수에 따라
+>>> 중첩문 가능
+```
+![[Pasted image 20250807230828.png]](결과)
+
+## 인라인 코드
+\` 백틱을 사용하면 인라인 코드를 작성할수있다.
+```md
+`inline code`
+```
+\`\`\` 백틱이 3개면 여러 줄로된 코드주석
+```javascript
+let sumNumbers = (firstNum, lastNum) => {
+  return firstNum + lastNum;
+};
+sumNumbers(100, 200);
+```
+```python
+num_list = ['one', 'two', 'three']
+for num in num_list:
+  print(num) 
+```
+
+링크
+```md
+인라인 링크는 아래처럼
+[인라인 링크](https://www.codeit.kr/)
+
+url 링크는 아래처럼
+<https://www.codeit.kr//>
+
+```
+![[Pasted image 20250807231026.png]](결과)
