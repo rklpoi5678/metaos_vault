@@ -29,4 +29,7 @@
 
 ```
 
-## PRwpah
+## PR제목
+\[본인이름] springN (N은 임의숫자) e.g. \[김코드] sprint2
+
+본문을 다작성했다면 Reviewes와 Labels를 지정해준다.
