@@ -15,3 +15,6 @@
 
 
 ...[MDN 상태코드]https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status 여기서 계속 외우기
+
+## 웹에서 정보 주고받기
+컴퓨터가 정보를 주는쪽이면 서버라고한다.(serve제공한다) 서버에게 정보를 요청해서 받는것을 클라이언트라고 한다.(Client 고객)(정보를 요청하는 고객)
