@@ -23,6 +23,6 @@
 웹은 전세계 많은 사람들이 이용하기 떄문에 사용자의 환경에 구애받지 않고 같은 내용을 보여주는 것이 중요하다. 이를 위해 운영체제나 브라우저에 상관 없이 웹 페이지의 내용을 일정하게 만들도록 하는 지침인 웹 표준을 정해 웹 개발자들이 따르도록 해놓았다.
 
 ## URL
-은 Scheme + address + path(어디에 리소스를 받아올건지)
+은 Scheme + address + path(어디에 리소스를 받아올건지) + ?(query) + #(Anchor 특정 세션으로 바로 가게끔 할수있다.)
 subdomain - Secondary Domain - Top-level Domain
 (www) - (naver) - (com)
