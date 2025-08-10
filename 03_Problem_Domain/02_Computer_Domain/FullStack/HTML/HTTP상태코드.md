@@ -9,4 +9,9 @@
 - 103 Early Hints :  주로 Link헤더와 함께 사용되며, 서버가 응답을 준비하는 동안 사용자 에이전트(user agent) 사전 로딩(preloading)을 시작할 수 있도록 한다.
 
 ## 성공응답
-- 200 Ok : 요청이 성공적으로 전송됨, 의미는 HTTP 메소드에 따라 달라진다. GET:리소스를 불
+- 200 Ok : 요청이 성공적으로 전송됨, 의미는 HTTP 메소드에 따라 달라진다. GET:리소스를 불러와서 메시지 바디에 전송되었다. HEAD: 개체 헤더가 메시지 바디에 있다. PUT or POST: 수행결과에 대한 리소스가 메시지 바디에 전송되었다. TRACE: 메시지 바디는 서버에서 수신한 요청 메시지를 포함한다.
+- 201 created: 요청이 성공적, 그 결과로 새로운 리소스가 생성되었다. 이 응답은 일반적으로 POST 요청 또는 일부 PUT 요청 이후에 따라온다.
+- 202 Accepted: 요청을 수신-> 그에 응하여 행동할 수 없다.
+
+
+...[MDN 상태코드]https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status 여기서 계속 외우기
