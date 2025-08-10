@@ -26,3 +26,6 @@
 은 Scheme + address + path(어디에 리소스를 받아올건지) + ?(query) + #(Anchor 특정 세션으로 바로 가게끔 할수있다.)
 subdomain - Secondary Domain - Top-level Domain
 (www) - (naver) - (com)
+
+## 관계형 데이터베이스가 가장 일반적인이유
+개발자가 
