@@ -33,3 +33,4 @@ subdomain - Secondary Domain - Top-level Domain
 정말 큰 서비스는 비고나계형 Nosql이랑 섞어서 사용하며, 용도에 따라 나뉜다.
 체계적으로 관리가 필요하면 관계형
 확장성과 유연성이 필요하면 비관계형 데이터베이스를 사용한다.
+
