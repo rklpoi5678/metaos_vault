@@ -26,6 +26,21 @@ console.log(number); // [36000, 21, 10, 4, 1]
 // 즉, 한번 정렬후 정렬하기 전 순서로 되돌릴 수 없다. -> 미리 다른 변수에 복사하는방법
 ```
 
+## 여기서 말하는 뺼셈 연산
+반환값 < 0 : a가 b보다 앞에 있어야 한다.
+반환값 = 0 : a와 b의 순서를 바꾸지 않는다.
+반환값 > 0 : b가 a보다 앞에 있어야 한다.
+
 ## reverse 메소드
 말그대로 배열의 순서를 뒤집어준다.
-sort와 마찬가지로 원본 배열의 요소들을 뒤집어 벌
+sort와 마찬가지로 원본 배열의 요소들을 뒤집어 버린다는점
+```js
+const letters = ['a','c','b'];
+const numbers = [421, 721, 353];
+
+letters.reverse();
+numbers.reverse();
+
+console.log(letters); //["b","c","a"]
+console.log(numbers); //[353,721,421]
+```
