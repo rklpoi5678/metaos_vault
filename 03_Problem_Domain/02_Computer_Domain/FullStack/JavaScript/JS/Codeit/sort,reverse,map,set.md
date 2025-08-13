@@ -70,5 +70,25 @@ codeit.set(2017 ,'숫자형 key');
 codeit.set(true ,'불린형 key');
 
 // get 메소드
-console.log(codeit.get(2017))
+console.log(codeit.get(2017)); //숫자형 key
+console.log(codeit.get(true)); //불린형 key
+console.log(codeit.get('title')); //문자열 key
+
+// has 메소드
+console.log(codeit.has('title')); // true
+
+// delete 메소드
+codeit.delete(true);
+console.log(codeit.get(true)); // undefined
+console.log(codeit.size); // 2
+
+// clear 메소드
+codeit.clear();
+console.log(codeit.get(2017)); // undefined
+console.log(codeit.size); // 0
 ```
+Map객체는 메소드를 통해 값을 다루기에, 다양한 자료형을 키로 활용할 수 있다는 장점이 있다.
+
+## Set
+
+
