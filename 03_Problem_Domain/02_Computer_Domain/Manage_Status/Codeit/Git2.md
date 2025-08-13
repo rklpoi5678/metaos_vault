@@ -11,3 +11,16 @@ git status : 현재 깃의 변경사항을 말함
 
 ## Git이 보는 파일의 4가지 상태
 git으로 관리되는 파일은 일종의 상태(status)를 가진다는 사실
+크게 2가지
+- Untracked status: 추적이 안되고있다. git add를 한번도 안했을때
+- Tracked status : 추적이되고 있는 상태 특징에 따라 3가지로 또 나뉨
+	- Staged status: staging area에 올라가있음
+	- Unmodified status: 최신 커밋과 변경사항이 없을때 추가로 커밋이후에 는 working directroy안의 모든 파일들이 이 상태가된다.
+	- Modified status: 조금이라도 바뀐 내용이 있는 상태면 그 파일은 Modified(수정된) 상태이다.
+	- git 파일은 매순간 4가지 상태 중 하나의 상태에있는다.
+![[Pasted image 20250814003650.png]]
+> 파일을 삭제하면 당연히 Git에서 더이상 인식하지않는다.
+
+
+## git add 취소하기 (git reset)
+git reset (여기에 해당 파일/디렉토리 이름): staging area에서 파일 제거
