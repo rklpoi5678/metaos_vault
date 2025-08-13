@@ -42,4 +42,7 @@ transition-timing-function: transition의 변화 속도를 지정할수있음 **
 ease: 기본값, 느리게 시작 점점 빨라지다 다시 느려지는 형태
 linear: 처음부터 끝까지 같은 속도
 ease-in: 느리게 -> 속도가 빨라짐
-ease-out
+ease-out: 빠르게 -> 느리게
+ease-in-out: 느리게 -> 빨라졌다 -> 다시 느려짐
+cubic-bezier(p1,p2,p3,p4): 4점으로 베지에 타이밍 곡선을 커스텀가능
+
