@@ -19,5 +19,14 @@ first commit 하기전 먼저해야하는것이 깃에게 commit한 사람 알�
 - git config(설정,구성) user.name "홍길동"
 - git config user.email "rkl...@....com"
 
-git commit(~행하다) 
-- 커밋에서는 이름,이메일,**커밋에 대한 정보**가 필요하다.
+git commit(~행하다) -m(옵션:커밋 메시지 남기기) ""
+- 커밋에서는 이름,이메일,**커밋에 대한 정보(커밋 메시지)** 가 필요하다.
+- untracked - 깃에 의해 아직 추적되지 않고 있다. -> 버전 관리의 대상이 아니다!
+- 즉 커밋하기 전에는 커밋할 파일을 미리 정해줘야한다.
+- 수정된 파일의 모습이 커밋에 포함될 것이라 지정하는 것이다.(=add)
+
+git add (버전에 추가할 파일의 이름)
+- root-commit : 이파일이 첫번째 커밋이라는 뜻을 나타냄
+- \[master (root-commit) abad338] (이후 여기서 나오는 것들이 작성한 커밋메시지)
+- n files changed(n개의 파일이 변경되었다)
+- n insertion(+): 파일안 작성한 총 줄(rows)수
