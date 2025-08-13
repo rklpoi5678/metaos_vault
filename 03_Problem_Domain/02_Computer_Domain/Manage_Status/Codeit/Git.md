@@ -43,5 +43,12 @@ git add (버전에 추가할 파일의 이름)
 working directory에서 뭔가 작업을 하고, 작업한 파일들을 git add 해주고, 커밋을 하면 staging area에 있던 파일들의 모습이 마치 영화의 한장면,snapshot처럼 이 저장소에 저장되는것 -> 실제 디렉토리 숨겨져있던 .git디렉토리가 repository
 
 ![[Pasted image 20250814002325.png]]
+![[Pasted image 20250814002357.png]]
+>staging area에 올렸는지 여부에 따라 그 최신 모습이 커밋에 반영되는지가 달라지는 것이다. Git을 사용할 때 잘 알고 기억해야하는 부분
 
+## staging이없다면?
+원하는 것들만 선별적으로 커밋에 반영할수없다. -> 세밀한 버전 관리를 할수없다.
 
+## 추가
+working directiony는 working tree라고 하기도 하고,
+staging area는 index라고 할 때가 있다.
