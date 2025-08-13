@@ -24,3 +24,13 @@ git으로 관리되는 파일은 일종의 상태(status)를 가진다는 사실
 
 ## git add 취소하기 (git reset)
 git reset (여기에 해당 파일/디렉토리 이름): staging area에서 파일 제거
+즉 stating area에서 내리는것이다.
+>reset을 해도 삭제되는것이 아닌 working directory에 있다.
+
+수정시 전과 같다면 nothing to commit, working tree clean이 뜰것이다. 즉, 전과 같아서 차이가 없으니 Unmodified상태가 되는것
+clean: 이전 커밋 이후로 변경사항 없음!
+
+## 특정 git 커맨드의 사용법
+git help (알고싶은 커맨드 입력) or man git-(알고싶은 커맨드)
+둘다 같은 결과를 출력한다.
+해당 결과에서 나가고 싶을땐 q(quit)입력
