@@ -29,4 +29,19 @@ git add (버전에 추가할 파일의 이름)
 - root-commit : 이파일이 첫번째 커밋이라는 뜻을 나타냄
 - \[master (root-commit) abad338] (이후 여기서 나오는 것들이 작성한 커밋메시지)
 - n files changed(n개의 파일이 변경되었다)
-- n insertion(+): 파일안 작성한 총 줄(rows)수
+- n insertion(+): 파일안 작성한 총 줄(rows)수가 추가되었다는 말이다.
+
+## 주의사항
+1. 처음으로 커밋을 하기 전 사용자의 이름과 이메일 주소를 설정!
+2. 커밋 메시지 남기기 (옵션 -m)
+3. 커밋할 파일을 git add로 지정해주기
+
+## Git의 3가지 작업 영역
+1. working directory: 작업을 하는 프로젝트 디렉토리를 말함,
+2. staging area: git add를 한 파일들이 존재하는 영역, 커밋을 하게 되면 staging area에 있는 파일들만 커밋에 반영됨(사진이 찍히고 갤러리에 있는 상태)
+3. repository: 커밋들이 저장되는 영역이라는 뜻
+working directory에서 뭔가 작업을 하고, 작업한 파일들을 git add 해주고, 커밋을 하면 staging area에 있던 파일들의 모습이 마치 영화의 한장면,snapshot처럼 이 저장소에 저장되는것 -> 실제 디렉토리 숨겨져있던 .git디렉토리가 repository
+
+![[Pasted image 20250814002325.png]]
+
+
