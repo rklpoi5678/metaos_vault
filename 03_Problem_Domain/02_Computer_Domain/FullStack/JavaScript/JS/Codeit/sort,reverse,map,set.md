@@ -102,5 +102,25 @@ Map객체는 메소드를 통해 값을 다루기에, 다양한 자료형을 키
 // Set 생성
 const members = new Set();
 
-// add 메소더
+// add 메소드
+members.add('영훈'); // Set(1) {"영훈"}
+members.add('윤수'); // Set(2) {"",""}
+members.add('동욱'); // Set(3) {"","",""}
+members.add('태호'); // Set(4) {"","",""}
+
+// has 메소드
+console.log(members.has('동욱')); // true
+console.log(members.has('현승')); // false
+
+// delete 메소드
+members.delete('종훈'); // false
+consol.log(members.size); // 4
+members.delete('태호'); // true
+console.log(members.size); // 3
+
+// clear 메소드
+members.clear();
+conosle.log(members.size); // 0
 ```
+Map은 get메소드로, 그리고 배열은 index를 통해서 개별 값에 접근할수있는데
+특이하게 Set에는 개별 값에 바로 접근하는 방법이없다.
