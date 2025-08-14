@@ -54,10 +54,41 @@
 ```
 ```CSS
 /* 공통 css 작성 */
+
+/* CSS 작업을 편하기위해 보더박스 적용 */
+* {
+	box-sizing: border-box; 
+}
+
 /**
 *  폰트와 기본 글자 색, 기본 글자 크기 정하기
 * 폰트는 특수폰트(웹폰트)지정 없으면 sans-serif
-* 피그마 디자인에서 공통적인요소 (ex: #46)
-/
+* 피그마 디자인에서 공통적인요소 (ex: 글자색 #464e5e 글자크기24px 가 공통이었다.)
+*/
 
+html {
+	font-family: Pretendard, sans-serif;
+	font-size: 24px;
+	color: #464e5e
+}
+
+/* body에는 마진 값없애기 */
+
+body {
+	margin: 0;
+}
+```
+
+1번 정리코드
+```html
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+	<meta charset='UTF-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MBTI별 좋아하는 컬러</title>
+	<ㅣㅑㅜㅏ
+
+</head>
 ```
