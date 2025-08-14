@@ -10,8 +10,15 @@ git status
 git branch (만들고싶은 브랜치 이름)
 > 이때 까지 한작업들도 모두 해당 브랜치 이름에도 들어가게 된다.
 
+git checkout (가고싶은 브랜치 이름)
+> 이제 여기서 작업하고 커밋하면 main브랜치와는 상관이없게된다.
+
+git branch
+> 이때 까지 만들어둔 branch이름들이 보인다.
+
+git branch -d (브랜치 이름)
+
+git checkout -b(branch) (만드고싶은 브랜치 이름)
+> branch를 만들고 체크아웃한다.
 
 
-
-
- 
