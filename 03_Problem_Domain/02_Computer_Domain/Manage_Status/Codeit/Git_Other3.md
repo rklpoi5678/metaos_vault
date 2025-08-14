@@ -91,3 +91,10 @@ git reset은
 |*.py[cod]|.pyc 또는 .pyo 또는 pyd로 끝나는 파일명|
 |*$py.class|$py.class로 끝나는 파일명|
 |*.so|.so로 끝나는 파일명|
+
+또 여튼 여기에(.gitignore) 에 해당하는 파일들은 모두 Git이 무시한다. 
+- build/
+- develop-eggs/
+처럼 이름 맨 뒤에 **슬래시(/)** 가 붙은 것은 디렉토리를 말한다. build디렉토리와 develop-eggs 디렉토리에 있는 모든 파일들도 Git이 무시한다.
+
+하여튼 이유는 많은데 키값이 들어있거나 라이브러리등을 사용하면서 중요한내용이거나 밝히면 안되는 내용이있다면 (working directory)포함 .gitignore파일에 그 이름을 추가하고 버전 관리를 시작자
