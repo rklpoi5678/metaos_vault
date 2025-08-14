@@ -1,5 +1,5 @@
 ## 핵심
-이미 Remote Repository에 올라간 커밋을 취소해야 한다면?
+이미 Remote Repository에 올라간 커밋을 **취소**해야 한다면?
 
 git revert(되돌리다라는 뜻) (commit hash)
 > 해당 커밋에 내용을 되돌리고 다시 커밋하는 커맨드이다.
@@ -26,3 +26,12 @@ git push
 > 이제 프리미엄 브랜치도 같게해준다.
 
 git checkout premium
+
+git history(alias된 커맨드)
+>프리미엄 브랜치의 로그를 본다
+
+git revert facd...eea5
+> 커밋 메시지를 입력하고 
+> 원격 프리미엄 브랜치로 푸시한다.
+
+git push
