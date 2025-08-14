@@ -33,4 +33,17 @@ perspective(value) 함수
 ```CSS
 transform-origin: x y z;
 ```
->px,% 단위로 설정하거나, left,center,right(x축),top,center,bottom(y축)
+>px,% 단위로 설정하거나, left,center,right(x축),top,center,bottom(y축)로 설정할수있다.
+>transform-origin: left top; 은 왼쪽 위를 기준점으로 설정한다는 말이다.
+추가로 x세로선 왼쪽 좌우를 움직인다는 느낌이고 y는 가로선을 아래 위로 움직인다는 느낌이다.
+
+## transform과 transition 함께사용
+```CSS
+.box {
+	width:100px;
+	height: 100px;
+	margin: 40px auto;
+	background-color: rgb(255, 68, 99);
+	transition: tran
+}
+```
