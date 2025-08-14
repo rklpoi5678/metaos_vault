@@ -34,3 +34,16 @@ git stash apply stash@{0}
 > git stash list 에 나온 스테시 아이디를 넣어서 확실하게 불러온다.
 > conflict 발생시 다시 에디터에서 수정
 
+... 수정후
+
+git add .
+git commit -m "Add get_Percent function"
+
+---
+
+### **작업 내용을 삭제할려면?**
+git stash drop(stack에서 작업내용을 삭제 떨어뜨리다. 스택처럼 뒤에서 뽑아낸다)
+
+git stash drop stash@\[0]
+> 이렇게 특정 스테시를 지정해서 드랍시킬수있다.
+> 또한 이것을 한번더 하면 또 삭제되겠죠?(스택)
