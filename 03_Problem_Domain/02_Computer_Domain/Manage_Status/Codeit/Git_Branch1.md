@@ -24,7 +24,7 @@ git checkout -b(branch) (만드고싶은 브랜치 이름)
 ## 브랜치 merge하기
 branch merge(병합하다, 합치다)
 
-git marge main(master)
+git marge main(master) (현재브랜치 파일을 main브랜치로 합병시키겠다.)
 > 현재 위치인 (현재branch) 에 main branch를 합치겠다.
 >  -m option이 없어 텍스트에디터가 나오는데
 
@@ -62,4 +62,4 @@ git merge --abort(버리다,취소하다)
 언제든지 git show로 충돌이 발생한 파일들의 목록을 확인할수있습니다.
 컨플릭트가 해결된 상태를  resolved(해결된) 상태라고 말하기도 한다.
 
-해결된후 git add . 나 git add (해결된 파일을) 다시 스테이징해
+해결된후 git add . 나 git add (해결된 파일을) 다시 스테이징해 git commit -m "..."해주면 된다.
