@@ -74,4 +74,20 @@ git reset은
 
 ## 깃이 무시하는 파일들
 .gitignore 파일 살펴보기
-- working driecttory내에 존재하는 파일들
+- working driecttory내에 존재하는 파일들 중에서
+- 마치 존재하지 않는 것처럼
+- Git이 인식해야할 파일들의 목록이 적힌 파일이다.
+위 3가지 중 **Git이 무시(ignore)하는 파일들의 이름이 적혀있다.** 
+
+여튼 .gitignore에 
+- \*.py\[cod]
+- $py.class
+- .so
+-> \*는 그냥 길이 0개이상의 아무 단어
+-> 그리고 대괄호(\[])는 그 안의 알파벳 중에 하나라고 생각하면 된다.
+
+|단어|의미|
+|---|---|
+|*.py[cod]|.pyc 또는 .pyo 또는 pyd로 끝나는 파일명|
+|*$py.class|$py.class로 끝나는 파일명|
+|*.so|.so로 끝나는 파일명|
