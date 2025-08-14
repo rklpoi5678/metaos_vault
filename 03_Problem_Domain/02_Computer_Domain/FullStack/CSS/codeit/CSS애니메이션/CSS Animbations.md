@@ -47,4 +47,22 @@ animation으로 한번에 줘도된다.
 ```
 
 animation-delay
-애니메이션이 시작되기 전 기다리는 시간을 설정한다.
+애니메이션이 시작되기 전 기다리는 시간을 설정한다. 즉, 애니메이션을 일정 시간 동안 지연시키는것이다.
+```CSS
+.box{
+	animation-delay: 1s; /* 1초 있다가 실행이된다. */
+}
+```
+
+animation-iteration-count
+```CSS
+.box1 {
+	animation-iteration-count 3: /* 3회 반복후 애니메이션 정지 */
+}
+.box2 {
+	animation-iteration-count: infinite; /* 무한 반복을 한다. */
+}
+```
+
+animation-timing-function
+transition에서 배웠던 베지에 곡선을 지정하낟
