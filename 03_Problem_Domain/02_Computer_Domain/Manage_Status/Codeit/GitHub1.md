@@ -27,4 +27,13 @@ git push -u origin master
 ## 추가
 다른 사람중 하나랑 같이 동시에 push되면 더 빠른쪽이 push되고 반영되면서 한쪽은 reject된다. pull하라는 경고도 뜰것이다.
 
-사실 git push는 아무나 못하고 리모트 레포지토리 주인,그러니까 지금 본인만 할수있다. 다른사람도 푸시할려면 세팅에서 매니저엑세스탭에
+사실 git push는 아무나 못하고 리모트 레포지토리 주인,그러니까 지금 본인만 할수있다. 다른사람도 푸시할려면 해당 원격 레포지에서 > 세팅 > 매니저엑세스탭에 PUBLIC REPOSITORY(원격 저장소내용 공개)
+> 그래도 이거한다고 git push는 되지않고
+
+Invite a Collaborator에 다른 사용자를 collaborator로 초대하면 그 사용자는 내 리모트 레포지토리에 git push할 수 있는 권한을 가질수있다.
+> 초대장을 보내면 해당유저에대해 Pending invite상태가된다.
+> 해당유저가 Accept inviation을 누르면 이제 내가 소유한 내 해당 원격레포지의 collaborator가 된다.
+
+정리
+1. collaborator초대장을 보내야 그 사용자가 내 원격저장소로 git push할수있다.
+2. 원칙적으로 자신의 레포지에서만 git push할수있다.
