@@ -65,4 +65,37 @@ animation-iteration-count
 ```
 
 animation-timing-function
-transition에서 배웠던 베지에 곡선을 지정하낟
+transition에서 배웠던 베지에 곡선을 지정한다. ease,linear,ease-in-out등의 값들을 사용
+```CSS
+@keyframes change-length {
+	form {
+		transform: scaleX(1);
+	}
+	to {
+		transform: scaleX(3);	
+	}
+}
+
+.box {
+...
+	animation-name: change-length;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	transform-origin: left;
+}
+
+
+.box0 {
+	animation-timing-function: ease;
+}
+.box1 {
+	animation-timing-function: linear;
+}
+.box2 {
+	animation-timing-function: ease-in;
+}
+```
+
+animation-direction
+애니메이션의 재생방향을 정한다. 기본값normal(순방향),reverse(역방향)으로 애니매이션 재생
+alternate는 순방향시작 순방향과 역방향을 번갈아 재생, 그리고 alternate-reverse는 역방향으로 
