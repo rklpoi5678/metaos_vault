@@ -22,4 +22,11 @@ git checkout -b(branch) (만드고싶은 브랜치 이름)
 > branch를 만들고 체크아웃한다.
 
 ## 브랜치 merge하기
+branch merge(병합하다, 합치다)
 
+git marge main(master)
+> 현재 위치인 (현재branch) 에 main branch를 합치겠다.
+>  -m option이 없어 텍스트에디터가 나오는데
+
+## 머지할때 conflict(충돌)
+브랜치와 브랜치끼리 ㄹ
