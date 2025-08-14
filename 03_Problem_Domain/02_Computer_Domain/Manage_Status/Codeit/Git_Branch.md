@@ -21,4 +21,5 @@ git branch -d (브랜치 이름)
 git checkout -b(branch) (만드고싶은 브랜치 이름)
 > branch를 만들고 체크아웃한다.
 
+## 브랜치 merge하기
 
