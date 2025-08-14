@@ -110,6 +110,32 @@ animation-fill-mode
 - forwards: 끝난후 마지막에 적용된 애니메이션 스타일유지
 - backwards: 시작하기전, 애니메이션 처음 시작 스타일로 유지
 - both: forwards와 backwards가 같이 적용됨
+```CSS
+/* 바를 만드는데 호버후 원래크기가 보이고 줄어들기 시작해서 어딘가 이상하게보인다. */
+.chart-cover:hover .bar {
+  display: block;
+  animation: bar-handler 1s infinite backwards;
+}
+
+.chart-cover:hover .bar2 {
+  animation-delay: 0.1s
+}
+
+.chart-cover:hover .bar3 {
+  animation-delay: 0.2s
+}
+
+.chart-cover:hover .bar4 {
+  animation-delay: 0.3s
+}
+
+@keyframes bar-handler {
+	0% {
+		transform: scaleY(0.1);
+	}
+	
+}
+```
 
 ## animation 축약형
 ```css
