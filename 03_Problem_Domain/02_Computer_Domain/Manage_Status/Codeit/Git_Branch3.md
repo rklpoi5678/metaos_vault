@@ -26,6 +26,33 @@ git checkout premiom을 하면 헤드는 premium브랜치를 가리키게된다.
 1. 과거의 커밋으로 git reset을 한다고 그 이후의 커밋들이 삭제되는 게 절대아니다.!
 2. git reset은 과거의 커밋뿐만 아니라 현재 HEAD가 가리키는 커밋 이후의 커밋으로도 할 수 있다.
 
+git checkout 9033
 HEAD가 직접 커밋을 가리키는 말은 Detached(우리말로 ~로부터 떨어진,분리된) HEAD이다.
 ![[Pasted image 20250814161051.png]]
 git branch premium
+![[Pasted image 20250814161124.png]]
+> premium브랜치는 HEAD가 가리키던 커밋을 똑같이 가리키게 된다.
+
+! checkout 커맨드로는
+- HEAD가 커밋을 직접적으로 가리키거나
+- 브랜치를 직접 가리키게 할수있다.
+
+git checkout premium
+![[Pasted image 20250814161244.png]]
+이 때 여기서 새로운 커밋을 하면 분기한다.
+
+## 풀어쓰기
+```git
+git checkout master
+
+= mv master
+= HEAD -> master
+= HEAD -> master - working directory내부도 그 커밋에 맞게 변함
+= master에 온 사용자는 실감하게됨
+```
+
+### **git reset vs git checkout**
+| git reset                            | git checkout                                         |
+| ------------------------------------ | ---------------------------------------------------- |
+| HEAD가 가리키던 브랜치가 다른 커밋을 가리키도록 한다      | HEAD 자체가 다른 커밋이나 브랜치를 가리키도록 한다                       |
+| HEAD도 결국 간접적으로 다른 커밋을 가리키게되는 효과가 생긴다 | 브랜치를 통하지 않고, 커밋을 직접적으로 가리키는 HEAD를 Detached HEAD라고 한다 |
