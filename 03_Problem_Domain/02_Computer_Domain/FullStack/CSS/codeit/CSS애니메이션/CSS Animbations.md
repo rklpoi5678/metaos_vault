@@ -32,6 +32,8 @@
 }
 ```
 사용법
+animation-name, animation-duration 사용해도되고
+animation으로 한번에 줘도된다.
 ```CSS
 .box {
 	animation-name: animation-name;
@@ -43,3 +45,6 @@
 	animation: animation-name 3s;
 }
 ```
+
+animation-delay
+애니메이션이 시작되기 전 기다리는 시간을 설정한다.
