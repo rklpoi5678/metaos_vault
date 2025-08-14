@@ -20,4 +20,12 @@ git checkout premiom을 하면 헤드는 premium브랜치를 가리키게된다.
 >3. 이 때문에 HEAD가 간접적으로 가리키던 커밋도 바뀌게 된다.
 
 ### **git reset을 한다고 그 이후의 커밋이 사라지는것이 아니다.**
-그래서 git reset은 
+그래서 git reset은 HEAD가 가리키는 커밋 이후의 커밋으로도 리셋할수있다.
+위 이미지에서 git reset 43kf 하면 네번째 커밋으로 돌아가겠죠.
+
+1. 과거의 커밋으로 git reset을 한다고 그 이후의 커밋들이 삭제되는 게 절대아니다.!
+2. git reset은 과거의 커밋뿐만 아니라 현재 HEAD가 가리키는 커밋 이후의 커밋으로도 할 수 있다.
+
+HEAD가 직접 커밋을 가리키는 말은 Detached(우리말로 ~로부터 떨어진,분리된) HEAD이다.
+![[Pasted image 20250814161051.png]]
+git branch premium
