@@ -21,4 +21,17 @@ git push -u origin master
 옵션 -u
 - --set-upstream이라는 옵션의 약자이다.
 - 로컬 레포지에 있는 마스터 브랜치가
-- 
+- origin에 있는 master 브랜치를 tracking(추적)하는 걸로 설정이된다.
+
+**트랙킹은 로컬 레포지의 한 브랜치가 리모트 레포지토리의 한 브랜치와 연결되어 그것을 계속 바라 보는 상태가 되는것이다.** -> tracking connection
+로컬a - 원격b: tracking connection
+원격b  - 로컬a: upstream branch라고 한다.
+보통은 같은 이름인 경우가 대부분이다.
+
+맨처음에 이 옵션을 주지않으면 나중에 git push할때
+git push origin master:master
+> 오리진은 리모트 레포지를 말하고, master는 로컬 레포지의 마스터 :master는 리모트 레포지의 master를 나타낸다.
+매번 이런식으로 git push, git pull을 해줘야한다.
+
+## 로컬 메인브랜치/ 원격 메인브랜치
+- master가 로컬 레포지토리의 master
