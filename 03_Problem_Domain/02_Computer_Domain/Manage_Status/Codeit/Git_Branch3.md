@@ -10,4 +10,14 @@ git checkout premiom을 하면 헤드는 premium브랜치를 가리키게된다.
 여기서 마스터로 간다음 다시 커밋을 하면 분기점이 생기면서 갈라집니다.(=분기한다.)
 ![[Pasted image 20250814155032.png]]
 ![[Pasted image 20250814160033.png]]
-> merge시 위 이미지처럼 
+> merge시 위 이미지처럼 합병된다. (머지커밋)
+
+## git reset의 비밀
+![[Pasted image 20250814160215.png]]
+>git reset \[--soft,--mixed,--hard]어떤 옵션을 쓰든
+>1. HEAD는 여전히 같은 브랜치를 가리키고,
+>2. HEAD가 가리키는 브랜치가 다른 특정 커밋을 가리키게 된다.
+>3. 이 때문에 HEAD가 간접적으로 가리키던 커밋도 바뀌게 된다.
+
+### **git reset을 한다고 그 이후의 커밋이 사라지는것이 아니다.**
+그래서 git reset은 
