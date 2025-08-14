@@ -34,4 +34,9 @@ git push origin master:master
 매번 이런식으로 git push, git pull을 해줘야한다.
 
 ## 로컬 메인브랜치/ 원격 메인브랜치
-- master가 로컬 레포지토리의 master
+- master가 로컬 레포지토리의 master 브랜치를 나타내고
+- origin/master가 리모트 레포지토리의 master브랜치를 나타낸다.
+![[Pasted image 20250814154142.png]]
+>git log --pretty=oneline 으로 찍어보면 현재 로컬 변경사항이 원격 레포지보다 앞서나간것을 알수있다. 커밋해서 최신변경사항을 맞춰준다면 (HEAD -> master, origin/master)처럼 될것이다.
+
+메인 브렌치가 아닌 다른 브랜치도 처음 올릴땐 git push 하면 --set-upstream을 설정하라고 나온다.
