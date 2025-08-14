@@ -114,7 +114,7 @@ animation-fill-mode
 /* 바를 만드는데 호버후 원래크기가 보이고 줄어들기 시작해서 어딘가 이상하게보인다. */
 .chart-cover:hover .bar {
   display: block;
-  animation: bar-handler 1s infinite backwards;
+  animation: bar-handler 1s infinite /* backwards */ /* ease-out */;
 }
 
 .chart-cover:hover .bar2 {
@@ -133,10 +133,15 @@ animation-fill-mode
 	0% {
 		transform: scaleY(0.1);
 	}
-	
+	50% {
+		transform: scaleY(1);
+	}
+	100% {
+		transform: scaleY(0.1);
+	}
 }
 ```
-
+>animation-fill-mode속성을 이용안했기에 모든 바들이 키프레임에 scaleY(0.1)로 있다가 시작하지 않는다. 기본값이 적용되어 원래 바크기만큼 보이다 scaleY(0.1)이 실행된것 그럴땐 주석부분에 있는 backwards속성으로 애니메이션이 "시작되기전" 처음 스타일인 scaleY(0.1)로 유지 , 마지막으로 타이밍 함수를 추가해 더 다이나믹하게 표현가능하다.
 ## animation 축약형
 ```css
 animation: change-color 3s infinite;
