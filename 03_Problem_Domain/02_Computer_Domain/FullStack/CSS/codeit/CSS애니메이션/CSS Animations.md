@@ -115,3 +115,9 @@ animation-fill-mode
 ```css
 animation: change-color 3s infinite;
 ```
+다만 아래처럼 좀 많으면 헷갈릴수있따.
+```css
+animations: change-color 3s infinite 1s linear reverse forwards;
+```
+이럴때는 길어지더라도 따로 풀어서 쓰는것이 더좋을수있다. 가독성측면에서
+순서는 상관없지만 시간의 경우 앞에 나오는것이 animation-duration 뒤에 나오는 것이 animation-delay로 인식된다는 점이다.
