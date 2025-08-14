@@ -35,4 +35,6 @@ git pull: 바로 합치고 싶을때 , git fetch: 리모트 레포지토리의 �
 
 ## 이 코드는 누가 작성했을까?
 git blame(비난하다, ~을 탓하다):어떤 파일의 특정코드를 누가 작성했는지 찾아내기 위한 커맨드
-> git blame calculator.py 를하면 해당 파일을 어떤 커밋
+> git blame calculator.py 를하면 해당 파일을 어떤 커밋해시에서 했는지 볼수있고,누가했는지 두번쨰 열에서 볼수있다.
+
+git show (commit hash): Author: 부분에서 누가 작성했는지를 알수있다.
