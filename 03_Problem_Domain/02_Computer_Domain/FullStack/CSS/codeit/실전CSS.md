@@ -15,12 +15,49 @@
 	1. 레이아웃 나누기
 	2. 헤더 구현
 	3. 설문 조사 목록 구현
-3. 컬러 등록 페이지 구현 (각 섹션별로 먼저정의 하나 섹션끝난후 gh)
+3. 컬러 등록 페이지 구현 (각 섹션별로 먼저정의 하나 섹션끝난후 확인 라이브 서버체크하면 편함)
 	1. 제목
 	2. MBTI 입력부
 	3. 컬러 입력하는 부분
 	4. 컬러 등록하는 부분
-
+4. 반응형 디자인 적용
+	1. 모바일 홈페이지에서 헤더의 레이아웃 변경하기
+	2. 모바일에서 글자 크기, 간격 변경하기
 
 ### **팁**
 아이콘, 이미지가 너무작다 x3(3배수이상) 기본 2배이상 이미지를 다운받아 픽셀이 최대한 안깨지도록 작업
+
+##  1번
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<!-- 이러한 기본 코드부터 먼저 정의 -->
+```
+```html
+<!-- 페이지 아이콘 적용하기 -->
+<link rel="icon" href="favicon.ico">
+```
+
+```html
+<!-- 폰트 적용 -->
+<link rel="stylesheet" as="style" crossorigin href="...">
+```
+```CSS
+/* 공통 css 작성 */
+/**
+*  폰트와 기본 글자 색, 기본 글자 크기 정하기
+* 폰트는 특수폰트(웹폰트)지정 없으면 sans-serif
+* 피그마 디자인에서 공통적인요소 (ex: #46)
+/
+
+```
