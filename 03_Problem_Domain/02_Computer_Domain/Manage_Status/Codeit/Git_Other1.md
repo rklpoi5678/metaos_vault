@@ -7,7 +7,7 @@ git reset (과거 콘솔에서 가고싶은 커밋해시를 찾아입력)하면 
 단지 HEAD가 다른곳으로 가리키고있을뿐이다.
 
 ### **해시를 까먹었을때**
-git reflog(refer)로 이때까지 HEAD가  가르킨 커밋을 출력한다.
+git reflog(reference log)로 이때까지 HEAD가  가르킨 커밋을 출력한다.
 다시 
 git reset --hard 9856(or HEAD~x or HEAD^)![[Pasted image 20250814182323.png]]
 
@@ -29,3 +29,12 @@ git log --pretty=online --all --graph
 ## gui프로그램
 GitKraken, Sourcetree
 소스트리는 실무에서도 많이 쓰이는 프로그램이다.
+
+git log정리
+**git log**는 커밋 히스토리를 보여주는 커맨드입니다. 이때
+
+(1) 모든 브랜치의 정보를 보면서,
+
+(2) 각 커밋 간의 관계가 입체적으로 잘 드러나도록
+
+--all --graph
