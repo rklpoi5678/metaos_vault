@@ -15,3 +15,13 @@
 
 base a master a premium b = B
 3-way merge는 base에서 변화가 발생한 것을 우선 채택합니다. 그래서 머지 결과 'B'가 된다.
+
+base 1 master 2 premium 1 
+base에서 변화가 발생한 2가 머지 결과가 된다.
+
+base "hello" master "" premium "hello" = 공백 상태가 된것이기에 변화가 더 발생한것이기 때문에 머지 결과는 공백이된다. 
+
+base "bye" master "fighting" premium "please"
+두 브랜치 에서 다 변화가 있을 때 Git은 어떤 변화를 선택하냐면 모른다를 선택한다
+-> conflict 발생
+
