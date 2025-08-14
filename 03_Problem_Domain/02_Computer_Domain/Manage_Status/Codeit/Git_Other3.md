@@ -18,4 +18,19 @@ git stash list : 스택에 저장된 stash내용을 리스트로 보여준다.
 > 작업 했던 내용을 불러온다.
 
 정리
-git stash: 어떤 브랜치
+git stash: 어떤 브랜치에서 하던 작업을 아직 커밋하지 않았는데 다른 브랜치로 가야하는 상황에서 **작업 중이던 내용을 잠깐 저장하고 싶을 때 사용한다.**
+
+## 잘못된 브랜치에서 작업하고 있었다면? (git stash활용법)
+
+git stash 
+> 해당 브랜치가아닌 프리미움 브랜치에서 작업해야했다.!
+
+git checkout premium
+
+git stash list
+> 혹시나 전에 저장되어있었던 스택이 있을수있으니 확실하게 불러와야겠다
+
+git stash apply stash@{0}
+> git stash list 에 나온 스테시 아이디를 넣어서 확실하게 불러온다.
+> conflict 발생시 다시 에디터에서 수정
+
