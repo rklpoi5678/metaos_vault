@@ -38,3 +38,18 @@ git reset --hard HEAD^
 git reset --hard HEAD~2
 >HEAD~2는 현재 HEAD가 가리키는 커밋보다 **2단계 전에 있는 커밋(전 전)** 을 나타낸다.
 
++ git reset --hard HEAD~x : x단계 전에 있는 커밋을 말한다.
++ 헤드가 현재 가리키는 커밋을 기준으로 한 상대적인 표현법 같은것을 쓰는 게 더편하다.
+
+## 커밋에 tag 달기
+git tag (태그 이름) (커밋 아이디)
+> git tag version1 eeed
+
+git tag를 쓰면 현재 이 프로젝트에 있는 모든 태그를 조회한다.
+> version1 이출력된다.
+
+git show version1
+> 태그가 가르키는 커밋을 볼수있다.
+
+git tag -d version1
+> 해당 태그를 지운다.
