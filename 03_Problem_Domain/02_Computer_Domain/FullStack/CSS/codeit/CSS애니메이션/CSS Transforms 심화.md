@@ -44,6 +44,16 @@ transform-origin: x y z;
 	height: 100px;
 	margin: 40px auto;
 	background-color: rgb(255, 68, 99);
-	transition: tran
+	transition: transform 1s;
+}
+
+.box1:hover {
+	transform: scale(1.5);
+}
+.box2:hover {
+	transform: scale(2, 0.5);
+}
+.box3:hover {
+	transform: rotate(360deg);
 }
 ```
