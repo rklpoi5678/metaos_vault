@@ -17,3 +17,17 @@ GitHub Repository설정 > Settings(보이지 않는다면 해당 레포지토리
 settings > Branches를 통해 설정 > Add branch protection rule 특정 브랜치들을 보호 상태로 설정할수있다.
 ![[Pasted image 20250816233110.png]]
 
+### **Branch name pattern**
+브랜치 보호는 브랜치의 이름을 기반으로 이뤄짐,(브랜치이름으로 보호설정을 걸수있음 main브랜치라면 main이라 적으면된다.)
+또는 feature/* 와 같은 패턴을 사용한다면 > feature/abe || feature뒤에 오는 브랜치들이 룰을 적용받게된다.
+
+### **Require a pull request before merging**(브랜치 보호룰 섹션안)
+머지하기전 반드시 PR을 생성 하도록 설정한다. 해당 브랜치에는 직접 푸시하지 못하게 된다. 즉, 동료들의 리뷰를 받지 않고 main에 푸시하는 실수를 막을 수 있다.
+![[Pasted image 20250816234614.png]]
+> 위 이미지처럼 막힌다.
+
+![[Pasted image 20250816234654.png]]
+> 여기서 자주 사용하는 2가지 내용
+> - Require approvals: PR이 병합되기 전 특정 수의 승인이 필요함을 명시가능(1명이면 1면이 승)
+
+
