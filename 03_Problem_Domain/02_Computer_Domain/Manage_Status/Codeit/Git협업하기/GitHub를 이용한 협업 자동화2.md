@@ -46,4 +46,4 @@ jobs:
 1. name: step이름, 액선로그에 표시, 의미 있는 이름으로 로그를 쉽게읽게하기
 2. run: 해당 step에서 실행할 shell,스크립트 지정 runnersOSd에 직접명령수행
 3. uses: 특정 액션을 사용하도록 지정
-4. with
+4. with: uses로 지정한 액션에 전달한 인수나 설정 값을 지정
