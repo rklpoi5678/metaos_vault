@@ -30,4 +30,5 @@ export default {
 	square,
 };
 // 2015년에 소개된 문법
+//브라우저와 Node.js에서 모두 사용
 ```
