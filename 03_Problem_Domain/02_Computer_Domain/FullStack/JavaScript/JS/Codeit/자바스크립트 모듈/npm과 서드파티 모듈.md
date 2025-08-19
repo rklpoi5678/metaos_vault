@@ -16,3 +16,4 @@
 }
 ```
 > dependencies는 서드파티 패키지들의 목록을보여준다.
+package.json 파일을 보고 main 필드에 명시된 파일에서 import를 하는것이다. 이때 main필드의 디폴트는 index.js이기 때문에 사실 이 필드가없어도 잘 작동한다.(서드 파티툴 date-fns)
