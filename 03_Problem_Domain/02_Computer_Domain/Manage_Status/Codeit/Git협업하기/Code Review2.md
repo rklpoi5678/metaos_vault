@@ -73,5 +73,17 @@ for (let i = 0; i < arr.length; i++) {
   console.log(arr[i]);
 }
 greet(name, age);
-
 ```
+
+## ESLint
+JavaScript의 Linting 도구이다. ESLint는 플러그인을 통해 React, Vue등과 같은 프레임워크나 라이브러리에 맞는 특화된 규칙을 추가할수있다.
+프로젝트 루트에 `.eslintrc`파일을 생성하고 ESLint옵션을 추가할 수 있다.
+```js
+{
+	"root": true,
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
+	"ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"]
+}
+```
+root레벨에 있는 ESLint 설정 파일임을 나타내고
+ESLint의 규칙인 `eslint:recommended`와 TS를 위한 규칙인 `plugin:@typescript-eslint/recommended`를 사용하도록 설정, 또한 테스트와 생성된 파일들을 Linting에서 제외하고 있다.
