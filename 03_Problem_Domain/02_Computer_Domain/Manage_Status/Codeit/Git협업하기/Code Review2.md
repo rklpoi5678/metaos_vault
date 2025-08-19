@@ -30,4 +30,48 @@ ci: CI/CD 등과 관련한 작업을 수행할때
 **자동으로 규칙 체크하기**
 개발자들은 자동화를 좋아한다. 규칙을 외우고 적용하는 불편함을 그냥 보고 넘길리없다.(Linting이 등장) 자동으로 체크하는기능, 언어에 따라 린팅을 맞춰 사용한다.
 
-링틴외에 Formatter가있는데, Linting툴이 작성된 코드의 규칙 위반 여부를 검사만 한다면, Formatter는  
+링틴외에 Formatter가있는데, Linting툴이 작성된 코드의 규칙 위반 여부를 검사만 한다면, Formatter는  Linting에 맞도록 자동으로 코드를 바꿔준다.
+스타일 가이드에 맞춰주기에 개발자들은 스타일을 고민할 필요 없이 로직에만 집중할수있다.
+
+## Linting 툴을 사용하면 어떤 효과를 볼까?
+- 팀 전체 동일한 코딩 스타일을 유지
+- 코드 가독성, 이해하기 쉽게 만든다.
+- 핵심 로직에만 집줍하게 만들수 있다.
+
+## Git을 사용해 팀원간 린팅 규칙 통일하기
+설정 파일로 부터 자동으로 린팅이 설정되게 할수있다.
+이러한 설정 파일을 Git으로 공유하면 모두가 손쉽게 Linting을 설정할 수 있다.
+
+## 실습
+**JS경우**
+ESLint와 Prettier을 사용한다. ESLint는 Linter로서, Prettier는 Formatter로서 작동한다.
+
+적용전(극단적인 예시)
+```js
+const name="John", age=25, message='Happy birthday!' ; const arr=[1,2,3,4,5]; const...
+```
+
+적용후(Formatter를 적용함)
+```js
+const name = 'John',
+  age = 25,
+  message = 'Happy birthday!';
+const arr = [1, 2, 3, 4, 5];
+const day = 'Monday';
+function greet(name, age) {
+  const message = 'Hello, ' + name + '. You are ' + age + ' years old.';
+  console.log(message);
+}
+if (day == 'Monday') {
+  console.log('Today is Monday.');
+} else if (day == 'Tuesday') {
+  console.log('Today is Tuesday.');
+} else {
+  console.log('Today is not Monday or Tuesday.');
+}
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+greet(name, age);
+
+```
