@@ -57,7 +57,22 @@ npm install pkg_name@version
 npm i date-fns@2.29.0
 ```
 `--global (-g)`
+패키지 중에서는 import하지 않고 커맨드라인에서 사용하는것이 있다. 이런 패키지들을 글로벌옵션으로 설치한다.
+```bash
+npm install pkg_name --global
+npm i nodemon --global
+```
+nodemon패키지를 설치하면 아래와 같이 node대신 nodemon이라는 커맨드로 프로그램을 실행할수있다.
+``` bash
+node main.mjs
+```
+> 커맨드라인에서 사용하는 패키지는 일반 설치를 하면 제대로 작동하지 않을 수도 있다.
+> 전역설치라 패키지가 설치한 디렉토리가 아니어도 어디서든지 사용할수있다.
 
+`--save-dev -D`
+```bash
+npm install pkg
+```
 
 
 
