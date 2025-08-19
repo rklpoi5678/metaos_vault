@@ -87,3 +87,27 @@ JavaScript의 Linting 도구이다. ESLint는 플러그인을 통해 React, Vue�
 ```
 root레벨에 있는 ESLint 설정 파일임을 나타내고
 ESLint의 규칙인 `eslint:recommended`와 TS를 위한 규칙인 `plugin:@typescript-eslint/recommended`를 사용하도록 설정, 또한 테스트와 생성된 파일들을 Linting에서 제외하고 있다.
+```bash
+# 다음 두가지 명령 중 선택해서 사용할 수 있다.
+npx eslint yourfile.js
+yarn run eslint yourfile.js
+```
+CLI로 interactive하게 Linting을 설정할수도 있다.
+```bash
+npx eslint --init
+```
+![[Pasted image 20250819233147.png]]
+
+## Prettier
+코드 포매팅에 초점을 맞춘 도구이다. JS뿐 아니라 TS,CSS,HTML등 다양한 언어를 지웒나다. 프로젝트 루트 하위에 `.prettierrc`파일에 Prettier옵션을 추가할 수 있습니다.
+```.prettierrc
+{
+	"trailingComma": "es5", #(1)
+	"tabWidth": 2,          #(2)
+	"semi": true,           #(3)
+	"singleQuoto": true     #(4)
+}
+```
+- (1): ES5에서 지원하는 위치에서 코드 뒤에 콤마를 추가
+- (2): 탭의 너비를 2 스페이스로 설정
+- 
