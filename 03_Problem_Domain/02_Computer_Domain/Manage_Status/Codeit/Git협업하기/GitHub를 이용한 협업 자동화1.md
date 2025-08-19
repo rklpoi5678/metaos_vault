@@ -7,5 +7,27 @@
 > 프로젝트의 루트에 .github폴더생성(.github디렉토리가 그정체) 그 하위에 CODEOWNERS 파일을 생성 .github/CODEOWNERS 파일에 다음과 같이 작성하고 커밋한다.
 
 ```md
-# 특ㅈ
+# 특정 파일에 대한 책임자 지정
+README.md  @username
+
+# 디렉토리 전체에 대한 책임자 지정
+/docs/ @organization/doc-team
+
+# 패턴을 통한 책임자 지정
+/src/* @organization/python-team
+
+# 레포지토리에 모든 코드에 대한 책임자 지정
+*  @username
+```
+> doc-team/ python-team에 해당하는 팀들도 collaborator에 추가되어야함, 여기서 team은 organization일 경우만 추가가능함
+
+##  Pull Request 템플릿 기능
+프로젝트에 기여하고자 하는 개발자에게 Pull Request의 기본 구조와 필요한 정보를 제공한ㄷ. 목적과 변경 사항을 명확히 파악하고 피드백을 신속하게 제공하는 데 도움을주며, 동시에 프로젝트의 변경 내역 문서화에도 기여한다.
+
+CODEOWNERS와 마찬가지로 .github/PULL_REQUEST_TEMPLATE.md 파일을 생성한다. 이 파일내 PR작성을 위한 가이드라인과 템프릿을 작성
+```markdown
+## 변경 사유:
+	- 이 변경이 필요한 이유나 배경을 설명해 주세요.
+
+## 체크리스트:
 ```
