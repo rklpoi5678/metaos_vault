@@ -110,4 +110,23 @@ npx eslint --init
 ```
 - (1): ES5에서 지원하는 위치에서 코드 뒤에 콤마를 추가
 - (2): 탭의 너비를 2 스페이스로 설정
-- 
+- (3): 문장 끝에 세미콜론을 사용한다.
+- (4): 문자열을 표시할 때 단일 따옴표를 사용한다.
+```bash
+# 이 또한 두 명령 중 선택해서 사용할 수 있다.
+npx prettier --write yourfile.js
+yarn run prettier --write yourfile.js
+```
+
+## 주의
+ESLint와 Prettier는 서로 충돌할수있다.
+이를 방지하기 위한 플러그인을 설치해줘야한다.
+```bash
+npm install eslint-config-prettier eslint-plugin-prettier --save-dev
+```
+
+## Python의 경우
+매우 다양한 린팅이 존재
+1. 동적언어여서
+2. 생태계가 다양해서
+3. Flake8, Black, isort, Pylance 등의 Linter/Formatter등
