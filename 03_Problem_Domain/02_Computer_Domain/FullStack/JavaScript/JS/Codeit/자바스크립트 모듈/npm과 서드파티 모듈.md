@@ -71,7 +71,37 @@ node main.mjs
 
 `--save-dev -D`
 ```bash
-npm install pkg
+npm install pkg_name --save-dev
+npm install jest --save-dev
+```
+> --save-dev 옵션을 선택하면 package.json의 dependencies필드에 기록되지 않고 devDependencise필드에 기록된다. 
+> 나중에 배포할때 (npm install --production)커맨드를 사용하거나 환경변수를 통해 node.js 환경을 production으로 설정한다면 devDependencise에 있는 패키지들은 설치되지않는다.
+
+`npm list (npm ls)`
+```bash
+npm list
+# 전역 설치된 패키지 목록
+npm list -g
+```
+
+`npm update (npm up)`
+패키지를 가장 최신 버전으로 업데이트한다. 패키지 이름을 생략하면 현재 디렉토리에 있는 모든 패키지를 업데이트한다.
+```bash
+npm update
+
+npm update pkg_name
+
+# 전역 패키지 모든 패키지 업데이트
+npm update -g
+
+npm update -g pkg_name
+```
+
+`npm uninstall(npm un)`
+패키지를 제거한다.
+```bash
+npm uninstall pkg_name
+npm un -g pkg_name
 ```
 
 
