@@ -80,7 +80,7 @@ async function printEmployees() {
 		console.log(data);
 	}
 }
-
+// for문을 풀계되면 같은 코드가 10번이나 반복하게된다.
 ```
 ```js
 async function printEmployees() {
@@ -92,6 +92,12 @@ async function printEmployees() {
 for(let i=1;i<11;i++) {
 	printEmployees(i);
 }
+```
+>![[Pasted image 20250820133834.png]]
+>> 작업을 빨리끝내는것이 목표라면 이방법을 사용한다. 
 
-// for문을 풀계되면 같은 코드가 10번이나 반복하게된다.
+## async 함수의 리턴값
+async함수는 항상 Promise함수를 리턴한다.
+```js
+import {getEmployee}
 ```
