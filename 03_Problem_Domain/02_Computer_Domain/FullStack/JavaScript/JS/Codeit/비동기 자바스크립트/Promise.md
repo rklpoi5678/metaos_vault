@@ -30,7 +30,7 @@ console.log(data);
 // fetch가 완료될때 response에 할당해준것
 const response = await fetch('..')
 // json으로 파싱할때도 오래걸릴수있기에 await을 안넣으면 Promise를 리턴
-const data = 'await' json(response)
+const data = 'await' response.json() 
 
 // console.log(await.json(response))
 ```
@@ -40,3 +40,21 @@ fulfiled: 비동기 작업이 성공적일때 (결과값을 리턴해준다.(값
 // awiat는 pending이 fullfiled될때까지 기다린다. 
 rejected: 비동기 작업이 중간에 실패했을때
 
+## async
+```js
+// async함수를 넣어줘야 await에 빨간줄이 안보인다.
+export 'async' function printEmployee(){
+	const response = await fetch...
+	const data = await resposen.json()
+}
+// async함수는 await의 Promise결과가 fullfild가 될때까지 
+
+//main.js
+import {printEmployees} from './asyncFunctions.js';
+
+printEmployees();
+
+console.log('2');
+console.log('3');
+
+```
