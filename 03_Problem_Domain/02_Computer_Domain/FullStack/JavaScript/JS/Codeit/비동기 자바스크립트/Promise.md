@@ -47,7 +47,8 @@ export 'async' function printEmployee(){
 	const response = await fetch...
 	const data = await resposen.json()
 }
-// async함수는 await의 Promise결과가 fullfild가 될때까지 
+// async함수는 await의 Promise결과가 fullfild가 될때까지 기다리면서 나머지것을 실행하여
+// 아래main.js console이 먼저찍히게된다.
 
 //main.js
 import {printEmployees} from './asyncFunctions.js';
@@ -57,4 +58,12 @@ printEmployees();
 console.log('2');
 console.log('3');
 
+```
+> await에서 리스폰스를 받을동안 함수밖으로나가서 다른코드를 실행하며
+> await을 만날때마다 이 행동을 반복한다.
+
+ArrowFunction을 사용한다면?
+```js
+
+export const 
 ```
