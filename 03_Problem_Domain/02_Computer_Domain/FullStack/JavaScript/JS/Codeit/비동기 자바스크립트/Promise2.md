@@ -15,5 +15,8 @@ export async function printEmployees(){
 	// 주소값이 이상할경우 catch문이 잡고 code-0으로 종료된다. 
 }
 ```
+> Promise가 rejected상태일때는 오류를 throw한다.
+> 프로그램의 필요에 따라 더 적절한 방식으로 오류를 처리하면 된다.
 
-
+## Promise와 오류 제대로 이해하기
+Rejected
