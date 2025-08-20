@@ -95,6 +95,7 @@ for(let i=1;i<11;i++) {
 ```
 >![[Pasted image 20250820133834.png]]
 >> 작업을 빨리끝내는것이 목표라면 이방법을 사용한다. 
+>>> console.log는 undefined상태를 리턴한다. (fullfiled)
 
 ## async 함수의 리턴값
 async함수는 항상 Promise함수를 리턴한다.
@@ -106,3 +107,6 @@ const employees = 'await' getEmployees() // Promise await을 써야 결과값을
 const employee = emplyees[1]
 console.log(employee); 
 ```
+
+
+

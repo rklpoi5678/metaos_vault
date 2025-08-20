@@ -49,3 +49,22 @@ pending상태의 리퀘스트를 보낸다.![[Pasted image 20250820143719.png]]
 패치에서 가져온 리스폰스값이 전달되면 해당 then은 리스폰스가된다.
 ![[Pasted image 20250820143822.png]]
 파싱된 데이터값이 data파라미터에 들어가면서 콘솔에 출력되고 undefined값이 리턴되어 리스폰스된다. 즉 위에서부터 성공결과값을 전달 전달 값을 가지고 실행이된다는점이다.
+
+## catch()와.finally() 메소드
+```js
+fetch('...');
+	.then((response) => response.json())
+	.then((data) => console.log(data))
+	.catch((error) => console.log('Error!'))
+	.finally(() => console.log('Finished'))
+	
+console.log('Task 2')
+console.log('Task 3')
+// then 에 이어 위처럼 catch, finally메소드를 붙일수있다.
+// 모두 Promise를 리턴합니다
+```
+
+![[Pasted image 20250820151249.png]]
+> catch는 then의 반대와 비슷하다. finally는 언제나 undefined값을 리턴할것이다.
+> catch: rejected -> execute callback
+> finally: 앞선 Promise가 fulfilled or rejected상태가 되면 excute callback
