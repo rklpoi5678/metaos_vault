@@ -73,9 +73,25 @@ export const printEmployeer = async () => {
 ## 효율적인 비동기 코드
 비효율적인 코드
 ```js
-export function printEmployees() {
+async function printEmployees() {
 	for(let i=1; i< 11; i++) {
-		const response = await fetch('https://learn.codeit.kr/api/employ')
+		const response = await fetch('https://learn.codeit.kr/api/employees/${i}')
+		const data = await response.json();
+		console.log(data);
 	}
 }
+
+```
+```js
+async function printEmployees() {
+	const resposne = await fetch(';;;');
+	const data = await response.json();
+	console.log(data)
+}
+
+for(let i=1;i<11;i++) {
+	printEmployees(i);
+}
+
+// for문을 풀계되면 같은 코드가 10번이나 반복하게된다.
 ```
