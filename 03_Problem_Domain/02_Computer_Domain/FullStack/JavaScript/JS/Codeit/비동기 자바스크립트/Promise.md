@@ -99,5 +99,10 @@ for(let i=1;i<11;i++) {
 ## async 함수의 리턴값
 async함수는 항상 Promise함수를 리턴한다.
 ```js
-import {getEmployee}
+// getEmployees는 export 함수에서 콘솔말고 리턴을 해줬다는 가정
+import { getEmployees } from './asyncFunction.js'
+
+const employees = 'await' getEmployees() // Promise await을 써야 결과값을 받아올수있음
+const employee = emplyees[1]
+console.log(employee); 
 ```
