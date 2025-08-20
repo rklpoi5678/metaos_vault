@@ -30,3 +30,18 @@ console.log(employees);
 
 ## 추가로 성공 여부를 각각 배열로 받고 싶다면
 Promise.all() 아닌 Promise.allSettled()를 사용하면 각 promise의 결과를 배열로 반환시킨다.
+
+```js
+// 괄호를 적어 다른 두개의 promise작업을 할수있다.
+// result에는 0번에 emp.. 1번에 menu..값이 들어올것이다
+const employeesPromise = getEmployees()
+const menusPromise = getMenus()
+
+const result = await Promise.all([employeesPromise,menusPromise])
+/*
+const members = result[0];
+const menus = result[1];
+*/
+
+console.log(result)
+```
