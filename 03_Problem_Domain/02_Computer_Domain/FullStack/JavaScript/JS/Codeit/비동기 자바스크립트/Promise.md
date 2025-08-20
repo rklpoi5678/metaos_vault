@@ -17,6 +17,7 @@ console.log(response);
  });
 ```
 Promise사용시
+우리가 사용하면 방식으로 코드를 작성할수있는것ㅇ
 ```js
 const response = await fetch('...');
 const data = await response.json()
