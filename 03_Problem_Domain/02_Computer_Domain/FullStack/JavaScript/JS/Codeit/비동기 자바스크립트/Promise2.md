@@ -33,5 +33,17 @@ async function printEmployees() {
 }
 
 // 위 코드를 then으로 표현하면
-const d
+const dataPromise = fetch('```').then((response) => response.json());
+dataPromise.then((data) => console.log(data));
+
+// 더간결하게
+// then은 프로미스를 리턴하기에 뒤에 then을 또 붙일수있는것 
+// 이렇게 연결해서 작성하는것을 **프로미스 체이닝**이라고 한다.
+fetch('```')
+	.then((response) => response.json());
+	.then((data) => console.log(data));
 ```
+
+![[Pasted image 20250820143629.png]]
+pending상태의 리퀘스트를 보낸다.![[Pasted image 20250820143719.png]]
+패치에서 가져온 리스폰스값이 전달되면 해당 then은 리스폰스가된다.
