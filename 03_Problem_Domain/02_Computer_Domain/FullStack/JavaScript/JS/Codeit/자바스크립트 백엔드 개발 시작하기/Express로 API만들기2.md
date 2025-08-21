@@ -225,4 +225,5 @@ API서버를 만들 때는 주로 객체나 배열을 전달
 application/json으로 설정하고 객체나 배열을 JSON문자열로 바꿔서 전달해준다. 디폴트 상태코드는 200 OK`
 `res.stauts()`
 리스폰스의 상태 코드를 설정한다.
-`res.sendStatus(`
+`res.sendStatus()`
+리스폰스로 바디 없이 상태 코드만 보낸다.
