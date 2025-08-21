@@ -23,14 +23,44 @@ app.post('/tasks', (req,res) => {
 	// 새로생성된것이니 완료는 폴스
 	// 현재시간으로 설정
 	// post하면 생성된 바디와 리스폰스를 돌려준다.
-	const id = tasks.map((task) => task.id);
+	const ids = tasks.map((task) => task.id);
+	// task에 있는 아이디의 값을 찾아 1을 더합니다.
 	newTask.id = Math.max(...ids) + 1;
 	newTask.isComplete = false;
 	newTask.createdAt = new Date();
 	newTask.updatedAt = new Date();
 	tasks.push(newTask);
 	res.status(201).send(newTask);
-	
 });
 ```
 
+## PATCH 리퀘스트 처리하기
+```http
+...
+// 일부 수정할 프로퍼티부분을 적어주면된다.
+###
+
+PATCH http:localhost:3000/tasks/1
+Content-Type: application/json
+
+// request.body부분에 들어갈 내용
+{
+	"isComplete": true
+}
+```
+```js
+app.patch('/tasks',(req,res) => {
+	const id = Number(req.params.id);
+	const task = tasks.find((task) => task.id === id);
+	// task와 req.body에있는 task key가 같을때 
+	// 리스폰스를 돌려줌
+	if(task){
+		Object.keys(req.body).forEach((key) => {
+			task[key] = req.body[key]
+		});
+		res.send(task);
+	} else {
+		res.status(401).send({ message: "Cannot find given id"});
+	}
+});
+```

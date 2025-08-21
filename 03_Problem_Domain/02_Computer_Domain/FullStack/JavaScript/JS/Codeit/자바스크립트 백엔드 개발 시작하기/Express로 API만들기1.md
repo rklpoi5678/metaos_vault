@@ -52,11 +52,11 @@ GET http://localhost:3000/hello
 ```js
 /** 
 rend메소드가 tasks를 파싱해준다.
-또한 rend메소드가 자동으로 header도 잡아주기에
+또한 send메소드가 자동으로 header도 잡아주기에
 웹 API를 만들때 많이사용한다.
  */
 app.get('/hello', (req,res) => {
-	res.rend(tasks);
+	res.send(tasks);
 })
 ```
 
