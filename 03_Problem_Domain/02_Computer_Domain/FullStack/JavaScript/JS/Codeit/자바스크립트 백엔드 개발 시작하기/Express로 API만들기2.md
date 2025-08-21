@@ -70,3 +70,25 @@ app.patch('/tasks/:id',(req,res) => {
 	}
 });
 ```
+
+## Delete리퀘스트 처리하기
+```http
+딜리트는 특정 테스크를 없애는거기에 바디가 필요없겠다.
+
+DELETE http://localhost:3000/tasks/1
+```
+```js
+app.delete('/tasks/:id', (req,res) => {
+	const id = Number(req,params,id);
+	const idx = tasks.findIndex((task) => task.id === id);
+	// index idx에서 시작해서 요소 1개를 지워라( 만약 찾지못하면 -1이기에 false)
+	// 삭제를 성공시 204상태코드 를 보내고 바디에는 아무것도 담지않는다.
+	// 바디에서 어떤 상태코드르 보내고싶을때는 status(204)를 보내면 된다.
+	if(idx >= 0) {
+		tasks.splice(idx,1);	
+		res.sendStatus(204);
+	} else {
+		res.status(404).send({ message: 'Cannot find given id'})
+	}
+})
+```
