@@ -30,4 +30,22 @@ PATCH /tasks/:id
 title: string
 description: string
 inComplete: boolean
-c
+createdAt: sting
+updatedAt: string
+```json
+{
+  "_id": "641bf3c9c0a964b65289902a",
+  "title": "파이썬 공부",
+  "description": "프로그래밍 시작하기 in Python 토픽 끝내기",
+  "isComplete": false,
+  "createdAt": "2023-03-23T06:34:11.617Z",
+  "updatedAt": "2023-03-23T06:34:11.617Z"
+}
+```
+
+## PATCH vs PUT
+수정시 PUT 메소드도 많이사용
+PATCH는 데이터를 부분수정할때, 리퀘스트 바디로 전달되는 필드들만 수정하는것
+반면 PUT은 데이터를 아예 새로운 데이터로 덮어쓸 때 사용한다.
+리퀘스트 바디로 아예 덮어쓸 데이터(객체)를 전달해야한다.
+
