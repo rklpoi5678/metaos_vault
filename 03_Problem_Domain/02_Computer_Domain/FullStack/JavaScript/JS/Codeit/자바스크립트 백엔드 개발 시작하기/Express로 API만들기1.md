@@ -85,8 +85,8 @@ app.get('/tasks', (req,res) => {
 // sort가 oldest면 a기준으로 양수이면 오름차순 음수이면 내림차순 
   const compareFn =
     sort === 'oldest'
-      ? (a,b) = a.createdAt - b.createdAt
-      : (a,b) = b.createdAt = a.createdAt;
+      ? (a,b) => a.createdAt - b.createdAt
+      : (a,b) => b.createdAt - a.createdAt;
   
   let newTasks = tasks.sort(compareFn);
 	
@@ -96,5 +96,28 @@ app.get('/tasks', (req,res) => {
       
   res.send(tasks);
 });
- 
+```
+
+## 다이나믹 URL 처리하기
+URL이 항상일정하기 않고 일부가 바뀌는것을 의미한다.
+```js
+// :id이 동적 파라미터라고 한다. 이 부분은 params로 전달된다.
+// params 프로퍼티로 url객체들이 전달되는것이다.
+// 기본적으로 문자열이다.(그래서 Nubmer로 행변환을 해야될경우도 있다)
+app.get('/tasks/:id', (req,res) => {
+	const id = Number(req.params.id);
+	// 항당 아이디를 이용해서 tasks의 아이디를 찾는다.
+	const task = tasks.find((task) => task.id === id);
+	
+	//id가 없을수도 있으니
+	if(task) {
+		res.send(task);
+	} else {
+	// status를 이용해서 404일시 해당 오류메시지를 출력하도록 할수있다.
+		res.status(404).send({ message: 'Cannot find given id'})	
+	}
+	
+});
+
+app.listen(3000, () => console.log('Server Started'));
 ```
