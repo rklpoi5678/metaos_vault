@@ -50,8 +50,51 @@ GET http://localhost:3000/hello
 ## GET 리퀘스트 처리하기
 \+ 테스트 데이터를 mock데이터라고도 많이부른다.
 ```js
-/** rend메소드가 tasks를 파싱해준다. */
+/** 
+rend메소드가 tasks를 파싱해준다.
+또한 rend메소드가 자동으로 header도 잡아주기에
+웹 API를 만들때 많이사용한다.
+ */
 app.get('/hello', (req,res) => {
 	res.rend(tasks);
 })
+```
+
+## 쿼리스트링 처리하기
+```http
+GET http...
+
+requests.http에서는 리퀘스트를 구분할려면 ###를 써줘야한다.
+###
+
+쿼리스트링을 쓰는방법이다.
+GET http.../tasks?sort=oldest&count=5
+```
+```js
+/*
+	쿼리 파라미터
+	- sort: 'oldest'인 경우 오래된 태스크 기준, 나머지 경우 새로운 태스크 기준
+	- count: 태스크 개수
+*/
+
+app.get('/tasks', (req,res) => {
+
+  const sort = req.query.sort;
+  const count = Number(req.query.count);
+
+// sort가 oldest면 a기준으로 양수이면 오름차순 음수이면 내림차순 
+  const compareFn =
+    sort === 'oldest'
+      ? (a,b) = a.createdAt - b.createdAt
+      : (a,b) = b.createdAt = a.createdAt;
+  
+  let newTasks = tasks.sort(compareFn);
+	
+	if(count) {
+		newTasks = newTasks.slice(0, count);
+	}
+      
+  res.send(tasks);
+});
+ 
 ```
