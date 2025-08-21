@@ -46,10 +46,15 @@ Content-Type: application/json
 // request.body부분에 들어갈 내용
 {
 	"isComplete": true
+	/* 
+		// 이런식으로 여러 필드를 넣어줄수도 있다.
+		"title" : "1시간 운동",
+		"description": "열심히 운동하기"
+	 */
 }
 ```
 ```js
-app.patch('/tasks',(req,res) => {
+app.patch('/tasks/:id',(req,res) => {
 	const id = Number(req.params.id);
 	const task = tasks.find((task) => task.id === id);
 	// task와 req.body에있는 task key가 같을때 
@@ -58,6 +63,7 @@ app.patch('/tasks',(req,res) => {
 		Object.keys(req.body).forEach((key) => {
 			task[key] = req.body[key]
 		});
+		task.updatedAt = new Date(); //수정된 날짜를 업데이트해줘야한다.
 		res.send(task);
 	} else {
 		res.status(401).send({ message: "Cannot find given id"});
