@@ -24,3 +24,63 @@ res.status(201).send(newTask);
 	},
 }
 ```
+문자열 길이는 : `minLength/maxLength`
+속성,숫자 값은: `min/max`
+문자열이 특정 값 중 하나인지는 `enum`
+```json
+{
+	title: {
+		type: String,
+		maxLength: 20,
+		required: true
+	},
+	price: {
+		type: Number,
+		required: true,
+		min: 0
+	},
+	cycle: {
+		type: String,
+		required: true,
+		enum: ['x','y']	
+	},
+	firstPaymentDate: {
+		type: String,
+		required: true
+	}
+}
+```
+20이상문자열필수, 넘버형 숫자 0이상 필수, x,y둘중에 하나 필수필드, 필수필드
+```js
+app.post('/subscriptions', async(req,res) => {
+	const newSub = await SubscriptionModel.create(req,body);
+	res.status(201).send(newSub);
+});
+```
+
+## 비동기 코드 오류 처리하가
+가장 직관적인것은 모든 await문을 try-catch로 잡는것
+-> 효율적이지 않아 그러한 함수를 만드는것이다.
+```js
+// 추가적으로 오류는 잡는 함수이다.
+function asyncHandler(handler) { //라우터로 들어가는 param을 파라미터를 받아 
+	// 또다른 핸들러함수를 리턴
+	// 추가적으로 오류처리가 되는 함수이다.
+	// async의 파라미터는 함수라는것!
+	return async function(req,res) {
+		try {
+			await handler(req,res) // 원래 있던 핸들러를 실행하고
+		} catch (e) {
+			console.log(e.name); // 오류가 발생하면 네임,메세지 프로퍼티를 출력
+			console.log(e.message);	
+		}
+	}
+}
+```
+```js
+// 이제 추가적으로 비동기 코드에서 오류가 을 함수를 이용해서 구현하였다.
+app.post('/tasks', asyncHandler(req,res) => {
+	const newTask = await Task.create(req.body);
+	res.status(201).send(newTask);
+})
+```
