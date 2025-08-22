@@ -112,5 +112,79 @@ app.get('/tasks/:id', async (req,res) => {
 	const task = await Task.findById(id);
 
 })
+```
+
+## 쿼리 필터
+`Model.find()` 조건을 만족하는 데이터만 조회,
+
+`persons`
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f68",
+    "name": "James",
+    "email": "james@gmail.com",
+    "age": 26
+  },
+  {
+    "_id": "645094e4670add1f1f973f67",
+    "name": "Charlie",
+    "email": "charlie@naver.com",
+    "age": 30
+  },
+  {
+    "_id": "645094e4670add1f1f973f66",
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "age": 21
+  },
+  {
+    "_id": "645094e4670add1f1f973f65",
+    "name": "Paul",
+    "email": "paul@naver.com",
+    "age": 40
+  },
+  {
+    "_id": "645094e4670add1f1f973f64",
+    "name": "Hannah",
+    "email": "hannah@gmail.com",
+    "age": 34
+  }
+]
 
 ```
+
+일치
+가장 많이 사용하는 필터는 필드의 값이 특정 값과 일치하는지 확인
+```js
+Person.find({ name: 'James' });
+```
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f68",
+    "name": "James",
+    "email": "james@gmail.com",
+    "age": 26
+  }
+]
+```
+
+```js
+Person.find({ age: 21 });
+```
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f66",
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "age": 21
+  }
+]
+```
+
+비교 연산자
+특정값초과 확인: `$gt` 연산자,
+특정값 미만 확인: `$lt` 연산자
+연산자를 사용하는 경우 새로운 객체 안에 네스팅(nesting)합니다.
