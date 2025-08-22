@@ -78,9 +78,27 @@ function asyncHandler(handler) { //라우터로 들어가는 param을 파라미�
 }
 ```
 ```js
-// 이제 추가적으로 비동기 코드에서 오류가 을 함수를 이용해서 구현하였다.
+// 이제 추가적으로 비동기 코드에서 오류 처리를 함수를 이용해서 구현하였다.
 app.post('/tasks', asyncHandler(req,res) => {
 	const newTask = await Task.create(req.body);
 	res.status(201).send(newTask);
 })
 ```
+> 이제 서버가 죽지않고 오류이름과 오류메시지를 출력할것이다.
+```js
+//이제 catch문을 수정
+// 사용자 측인지 서버측인지 판단을 할수있다.
+		} catch (e) {
+			if(e.name === 'ValidationError'){
+				// 400: 사용자 측에서 잘못보낸다.
+				res.status(400).send({ message: e.message })
+			} else if (e.name === 'CastError'){
+				res.status(404).send({ message: 'Cannot find given id.'})
+			} else {
+				// 그외의 경우는 모두 500을 리턴
+				// 서버측에서 무언가가 잘못되었다!
+				res.status(500).send({ message: e.message })
+			}
+		}
+```
+
