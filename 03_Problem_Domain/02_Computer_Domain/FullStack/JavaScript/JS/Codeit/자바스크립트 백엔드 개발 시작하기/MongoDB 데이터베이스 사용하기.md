@@ -92,11 +92,23 @@ mongoose.connection.close(); // 종료시킨다.
 import mockTasks from './data/mock.js';
 import Task from './models/Task.js';
 
+// 쿼리를 쓰기때문에 쿼리의 결과값을 쓸수있다.
+// count가 0인 경우 모든 limit객체를 리턴합니다.
+const sort = req.query.sort;
+const count = Number(req.query.count) || 0;
+
+const sortOption = { createAt: sort === 'oldest' ? 'asc' : 'desc'}
+// tasks는 조건을 만족하는 배열이 된다.
+const tasks = await Task.find().sort(sortOption).limit(count);
+
+res.send(tasks);
+
 // await 사용시 함수에는 async
 app.get('/tasks/:id', async (req,res) => {
 	// 몽고DB는 기본적으로 아이디부분은 문자열을 받음
 	const id = req.params.id;
-	// findById라는 메소드 제공
+	// findById라는 메소드 제공 쿼리를 리턴해준다.(프로미스랑 비슷하다)
+	// 차이점은 쿼리는 뒤에 여러가지 옵션은 전달할수있다
 	const task = await Task.findById(id);
 
 })
