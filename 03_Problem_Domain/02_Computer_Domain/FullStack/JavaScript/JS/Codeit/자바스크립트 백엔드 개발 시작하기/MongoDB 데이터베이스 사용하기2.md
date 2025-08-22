@@ -101,4 +101,20 @@ app.post('/tasks', asyncHandler(req,res) => {
 			}
 		}
 ```
+```js
+// 이런식으로 asyncReqHandler 를 리턴하는방법도 있다.
+function asyncHandler(handler) {
+  async function asyncReqHandler(req, res) {}
 
+  return asyncReqHandler;
+}
+```
+
+## 데이터 수정하고 삭제하기
+특정 아이디에 있는 데이터를 삭제할때
+`findByIdAndDelete(아이디)`를 사용할수있습니다.
+
+## 정리
+**스키마와 모델**: schema는 데이터의 틀이다. 몽구스로 어떤 데이터를 다룰려면 항상 스키마와 모델을 가장 먼저 정의해야한다.
+`String,Number,Boolean,Date, default 프로퍼로 기본값을 설정할수있다.`
+`timestamps: true`를 사용하면 `createdAt,updatedAt` 필드를 몽구스가 알아서 생성하고 관리할수있다.
