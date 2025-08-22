@@ -188,3 +188,165 @@ Person.find({ age: 21 });
 특정값초과 확인: `$gt` 연산자,
 특정값 미만 확인: `$lt` 연산자
 연산자를 사용하는 경우 새로운 객체 안에 네스팅(nesting)합니다.
+```js
+Person.find({ age: { $gt: 35 } });
+```
+```json
+  {
+    "_id": "645094e4670add1f1f973f65",
+    "name": "Paul",
+    "email": "paul@naver.com",
+    "age": 40
+  },
+```
+```js
+Person.find({ age: { $lt: 35 } });
+```
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f68",
+    "name": "James",
+    "email": "james@gmail.com",
+    "age": 26
+  },
+  {
+    "_id": "645094e4670add1f1f973f67",
+    "name": "Charlie",
+    "email": "charlie@naver.com",
+    "age": 30
+  },
+  {
+    "_id": "645094e4670add1f1f973f66",
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "age": 21
+  },
+  {
+    "_id": "645094e4670add1f1f973f64",
+    "name": "Hannah",
+    "email": "hannah@gmail.com",
+    "age": 34
+  }
+]
+
+```
+
+Regex 연산자
+`$regex`연산자를 사용하면 됩니다.
+```js
+Person.find({ email: { $regex: 'gmail\.com$' } });
+```
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f68",
+    "name": "James",
+    "email": "james@gmail.com",
+    "age": 26
+  },
+  {
+    "_id": "645094e4670add1f1f973f66",
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "age": 21
+  },
+  {
+    "_id": "645094e4670add1f1f973f64",
+    "name": "Hannah",
+    "email": "hannah@gmail.com",
+    "age": 34
+  }
+]
+
+```
+
+AND 연산자
+여러 조건을 모두 만족하는 결과만 필터링하고싶다면 하나의 객체 안에 여러 조건을 작성
+```js
+Person.find({ age: { $lt: 32 }, email: { $regex: 'gmail\.com$'}});
+```
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f68",
+    "name": "James",
+    "email": "james@gmail.com",
+    "age": 26
+  },
+ 
+  {
+    "_id": "645094e4670add1f1f973f66",
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "age": 21
+  }
+]
+
+```
+
+or연산자
+하나라도 만족하는 경우 $or사용
+```js
+Person.find({ $or: [{age: {$lt:32}}, {email: { $regex: 'gmail\.com$' } }] });
+```
+```json
+[
+  {
+    "_id": "645094e4670add1f1f973f68",
+    "name": "James",
+    "email": "james@gmail.com",
+    "age": 26
+  },
+  {
+    "_id": "645094e4670add1f1f973f67",
+    "name": "Charlie",
+    "email": "charlie@naver.com",
+    "age": 30
+  },
+  {
+    "_id": "645094e4670add1f1f973f66",
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "age": 21
+  },
+  {
+    "_id": "645094e4670add1f1f973f64",
+    "name": "Hannah",
+    "email": "hannah@gmail.com",
+    "age": 34
+  }
+]
+
+```
+
+.findOne()메소드
+`find()`는 여러 객체를 가져오는 데 사용, findById()sms \_\_id에 해당하는 객체 하나를 가져오는데 사용 만약 \_\_ 대신 다른 조건을 만족하는 객체 하나를 가져오고 싶다면 .findOne() 메소드를 사용한다.
+```js
+Person.findOne({ name: 'James'});
+```
+> 이름이 James인 놈 하나
+```json
+{
+  "_id": "645094e4670add1f1f973f68",
+  "name": "James",
+  "email": "james@gmail.com",
+  "age": 26
+}
+```
+```js
+Person.findOne({ email: { $regex: 'gmail\.com'}});
+```
+> 만족 하는 객체가 여러개일시 처음으로 매칭된 객체 하나만 리턴
+```json
+{
+  "_id": "645094e4670add1f1f973f68",
+  "name": "James",
+  "email": "james@gmail.com",
+  "age": 26
+}
+```
+
+## 효율
+`__id`로 객체를 가져올떄는 `.findById()`를 사용하는것을 추천.
+다른 조건에 해당하는 객체 하나를 가져와야 할 때 `.findOne()`을 사용하면된다. 
