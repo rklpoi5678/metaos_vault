@@ -85,3 +85,20 @@ mongoose.connection.close(); // 종료시킨다.
 ```
 > npm run seed하면 atlas에 성공적으로 시딩한 데이터 시드데이터가 들어왔다
 > __v는 몽고디비에서 내부적으로 사용하는값이기에 무시해도된다.
+
+## 데이터 조회하기
+```js
+// 파일변수 이름클릭후 f2를 누르면 전체 이름을 변경시킬수있다.
+import mockTasks from './data/mock.js';
+import Task from './models/Task.js';
+
+// await 사용시 함수에는 async
+app.get('/tasks/:id', async (req,res) => {
+	// 몽고DB는 기본적으로 아이디부분은 문자열을 받음
+	const id = req.params.id;
+	// findById라는 메소드 제공
+	const task = await Task.findById(id);
+
+})
+
+```
