@@ -58,6 +58,68 @@ model User {
 > 필드이름 | 필드타입 | 어트리뷰트
 
 ## Prisma Schema 추가 기능
-`enuim`
+`enum`
 유저의 멤버십 타입을 지정한다고 치자,
-멤버쉽은 BASIC과 PREMIUM 2가지 타입이 있는데 이렇게 필드
+멤버쉽은 BASIC과 PREMIUM 2가지 타입이 있는데 이렇게 필드의 값이 몇 가지 정해진 값 중 하나일 때는 enum(enumerated type)을 사용할수있다
+```js
+model User {
+	// ...
+	membership Membership @default(BASIC)
+}
+
+enum Membership {
+	BASIC
+	PREMIUM
+}
+```
+이넘값은 대문자
+필드의 타입을 이넘이름으로 지정
+> SQLite에서는 이넘을 사용할수없다.
+
+`@@unique`
+여러 필드의 조합이 유니크해야하는경우
+@@unique어트리뷰트 사용
+특정 필드에 종속된 어트리뷰트가 아니기 때문에 모델아래에 씁니다.
+```js
+model User {
+	id String @id @default(uuid())
+	email String @unique
+	firstName String
+	lastName String
+	address String
+	createdAt DateTime @default(new())
+	updatedAt DateTime @updatedAt
+	
+	// 두 조합이 유니크가 되게설정
+	@@unique([firsName, lastName])
+}
+```
+-->
+```json
+// 삽입 가능
+{
+	id: "abd",
+	firstName: "길종",
+	lastName: "홍",
+	// ...
+},
+{
+	id: "def",
+	firstName: "길종",
+	lastName: "박",
+	// ...
+}
+// 삽입 불가능
+{
+	id: "abd",
+	firstName: "길종",
+	lastName: "홍",
+	// ...
+},
+{
+	id: "def",
+	firstName: "길종",
+	lastName: "홍",
+	// ...
+}
+```
