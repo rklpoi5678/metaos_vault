@@ -37,3 +37,15 @@ root.render(<h1>안녕 리액트!</h1>)
 리액트에서 기본적으로 시작은 index.html부터 시작한다.
 
 index.html이후 main.jsx가 시작된다. 리액스 코드중에서 가장 먼저 실행되는 코드이다.
+
+```js
+import ReactDOM from 'react-dom'
+
+ReactDOM.render(<>!!<>), document.getElementById('root');
+```
+ReactDom에 render메소드로 html태그를 만들어주게된다.
+순수한 자바스크립트가 아니고 jsx라는 자바 +  html코드가 썪인것을 사용한다. 
+
+즉, 첫번째 아규먼트로 새로운 html요소를 만들고, 그요소를 두번째 아큐먼트에 넣는 방식으로 동작하게된다.
+
+개발자도구에서 root아이디 안에 우리가 만든 코드를 확인할수있다.
