@@ -16,3 +16,6 @@ let result = arr.reduce((acc,cnt) => {
 	)
 })
 ```
+
+깊은복사
+strucutredClone()
