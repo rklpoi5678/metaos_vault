@@ -15,6 +15,31 @@
 ## 엔트리포인트(zod 패키지의 index.ts)
 **외부 모듈의 내용을 다양한 형태로 다시 내보내는 ( re-export)패턴이다.**
 ```js
-import * from "./v4/classic/external.js"
+import * as z from "./v4/classic/external.js"
 ```
--  해당 
+-  해당 external에안 모든export를  하나의 네임스페이스 객체 `z`를 가져온다.
+- 즉 `z.string,z.number,z.object` ...이런 식으로 접근 가능
+```js
+export * from "./v4/classic/external.js"
+```
+- 원래 그 모듈이   export하던 모든 심볼을 이 파일에서도 그대로 export (통과한다는 느낌)
+- 그래서 `import {string} from '이모듈'`처럼 불러오는게 가능
+```js
+export { z };
+```
+- 네임스페이스 (as z ) 자체를 이름있는  export로 노출시킨다.
+- 이렇게 하면 사용하는쪽이 ( 주는것)
+```js
+import { z } from '이모듈(index.ts에서 내보냄)';
+z.string(...);
+```
+
+```js
+export default z;
+```
+> z 를 기본(default) export로도 내보냄
+
+이렇게 하면 사용하는 쪽
+```js
+import z from "이모듈(index.ts에서 내보냄)"
+```
