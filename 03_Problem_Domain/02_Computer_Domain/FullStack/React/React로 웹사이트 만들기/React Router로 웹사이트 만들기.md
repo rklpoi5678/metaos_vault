@@ -44,3 +44,23 @@ export default Main;
 ```
 **Link**: a태그처럼 사용하는것
 
+## Routes로 페이지 나누기
+```jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './components/App';
+import HomePage from  './pages/HomePage';
+
+function Main() {
+	return (
+		<BrowserRouter>
+			<App>
+				<Routes>
+					<HomePage/>
+				</Routes>	
+			</App>	
+		</BrowserRouter>		
+	)
+}
+
+export default Main;
+```
