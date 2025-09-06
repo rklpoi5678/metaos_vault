@@ -152,6 +152,8 @@ export default App;
  
  ///////////////////////////////////////////////////////////////////
  //// 여러 테마를 선택하게 하고 싶다면 useState를 활용해서 테마를 바꿔준다./////
+ ///////////////////////////////////////////////////////////////////
+ 
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Button from './Button';
@@ -185,3 +187,7 @@ function App() {
 export default App;
 
  ```
+ 
+ ## 상황별 유용한 팁
+**버튼 모양 링크가 필요할 때**
+반복되는 스타일링 코드를 어떻게 관리할까? -> 간편하게 사용할 수 있는게 바로 as라는 Prop입니다. 아래와 같이 버튼이라는 컴포넌트가 버튼 태그로 만들어져 있을 
