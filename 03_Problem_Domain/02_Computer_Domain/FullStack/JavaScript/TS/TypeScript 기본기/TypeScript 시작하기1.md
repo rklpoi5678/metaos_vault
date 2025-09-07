@@ -23,6 +23,13 @@ nums.length // 오류 발생!
 npm install --save-dev typescript
 ```
 ```bash
-# npm exeute typescript  ja
+# 초기 설정파일 만들기
+# npm exeute typescript javascript --init
 npx tsc --init
+```
+```json
+// 이것을 실행하면 ts문법을 자바스크립트 문법으로 바꿔준다.
+"scripts" : {
+	"build" : "tsc"
+}
 ```
