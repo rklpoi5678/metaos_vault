@@ -119,3 +119,59 @@ const paresedProduct = <{
 ```
 
 ## 함수에 타입 정의하기
+```tsconfig.json
+"strict": true, // 이 옵션이 켜져있으면
+"noImplicitAny": ture // 이 옵션이 켜진다. 암묵적으로 any사용을 금지시킴
+```
+```ts
+// 함수 파라미터에 타입을 명시하고 기본값으로 1을 넣어줌
+function addToCard(id: string, quantity: number = 1) {
+	if (stock[id] < quantity ) {
+		return false	
+	}
+}
+```
+
+ 프로퍼티안에 함수를  넣을때 이렇게 하면된다.
+ ```ts
+ const codeitmall: {
+	 stock: {[id:string]: number };
+	 cart: string[]; 
+	 addToCart: (id: string, quantity?: number) => boolean;
+	 addManyToCard: (...ids: string[]) => void;
+ } = {
+	stock: {
+		c001: 3,
+		c002: 1,	
+	},
+	cart: [],
+	addToCard,
+	addManyToCard,
+ };
+ 
+// 아무것도 리턴하지 않는 함수를 void라고 한다. 
+ function addManyToCart(...ids: string[]) {
+	for (const id of ids) {
+		addToCard(id);	
+	} 
+ }
+ ```
+
+## 정리
+```ts
+//  각 프로퍼티는 세미콜론으로 구분한다. 필수가 아닌 프로퍼티는 프로퍼티 이름 뒤에 물음표를 붙인다.
+let stock: {  [id:string]: number} = {
+	c001: 3,
+	c002: 2,
+	c003: 2,
+};
+```
+
+**any타입**
+```ts
+const parsedProduct = JSON.parse('{ "name": "코드잇 토트백", "price": 12000 }') as { name: string; price: number };
+
+```
+```ts
+
+```
