@@ -33,3 +33,45 @@ npx tsc --init
 	"build" : "tsc"
 }
 ```
+
+## TS가 실행되는 과정
+타입스크립트 컴파일러(TSC), 트랜스파일(Transpile)
+타입스크립트 코드를 자바스크립트 코드로 트랜스파일  해 주는 프로그램
+
+1. 타입검사 (Type Check)
+	1. 오타, 타입이 잘못되면 -> 에러메시지를 보여줌
+2. 트랜스파일(Transpile)
+	1. tsconfig.json에서 맞는  es버전으로  맞춰준다.
+3. 맞춰졌다면 node나 웹브라우저에서 이 코드를 실행
+	1. 자바스크립트 엔진을 사용해서 실행
+
+## 타입을 정하는 법
+```ts
+/** 추론을 통해 타입을 정하는 법 */
+let size = 100; // number로 타입이 정해집
+size = 'L' // 당연히 타입을 변경시킬라카면 오류가 튀어나온다.
+//vscode에서 미리미리 타입오류를 잡을수있다.
+
+/** 명시적으로 하는법 */
+//let size: number = 100; 
+// 곧바로 타입을 정해주지않을때
+let size: number;
+size = 100;
+// 이제 컴파일해보면 number는 타입스크립트 고유문법이기에 사라진다.
+// 타입은 컴파일할때만 쓰고 실제 코드를 싦행할때 쓰이지않습니다!
+```
+
+## 타입 오류 이해하기
+```ts
+/*
+	오류 코드가 길어도 겁먹지않아도되는게 맨위에는 전체 아래로 갈수록 오류메시지를 좁힌다.
+	// 1줄은 들어오는 코드가 안맞다는 것
+	Type '{ id: string; name: string; price: number; sizes: number[];}',
+	// 2줄은 객체 안에서도 sizes라는 프로퍼티가 안맞다는 것
+	Types of property 'sizes' are incompatible.
+	// 3줄은 숫자배열을 문자배열에 할당할수없다는것
+	Type 'number[]' is not assignable to type 'string[]'.
+	// 4마지막줄은 더 좁게 들어간것이다. 숫자열을 문자열에 할당할수없다는 의미이다.
+	Type 'number' is not assignable to type 'string'. ts(2322)
+*/
+```
