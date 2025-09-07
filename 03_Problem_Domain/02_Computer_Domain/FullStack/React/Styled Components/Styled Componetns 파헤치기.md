@@ -130,3 +130,4 @@ export default App;
 2. App컴포넌트를 렌더링하면 StyledH1 컴포넌트도 렌더링한다.
 3. StyledH1 컴포넌트에서는 CSS코드를 생성해서 `<style>` 태그로 넣는다. 이때 함수로 삽입된 값(`${({ dark }) => dark &&  'background-color: black;`} ) 부분은 함수이기에 , Props를 가지고 실행해서 CSS 로 만든다.
 4. 위 코드에  dark값이 있기에 CSS에서는 `background-color: black;` 이 라는  값으로 반영된다.
+5. 
