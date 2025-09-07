@@ -93,6 +93,8 @@ const obj  =  {
 코드를 적은 위치에 따라 변수의 범위가 결정되는 방식이다.
 함수가 어디서 실행(위치) -> 어떤 스코프에 접근할수있을지
 어디서 태어났는지 문제이기도 합니다.
+
+결론은 함수스코프, 전역스코프 등등 라고 불리는 그 스코프입니다.
 ```js
 function 밖() {
 	const message = '태어났다';
@@ -117,3 +119,27 @@ function 밖 const message; <- function 안() { console.log (messager)}
 const 예시 = 밖()
 예시(); // return 을 안으로 했기에 콘솔이 출력됨
 ```
+
+아래 코드처럼 태어난 위치 기준으로 name=안 에  접근한다.
+왜냐하면 태어난 위치 범위기준 밖에 기억하지못한다.
+```js
+const name = "밖";
+
+function outer() {
+  const name = "안";
+
+  function inner() {
+    console.log(name); // "안"
+  }
+
+  return inner;
+}
+
+const fn = outer();
+fn(); // "안"
+
+```
+자스의 규칙이다.
+
++ 이것의 적용규칙순서나 스코프들이 연결되어있을때 어떻게 연결되어있는지 보여주는 말을
++ 스코프 체인이라고 한다.
