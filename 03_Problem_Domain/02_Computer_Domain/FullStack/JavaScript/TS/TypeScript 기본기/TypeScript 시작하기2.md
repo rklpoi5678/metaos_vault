@@ -85,4 +85,37 @@ let stock: {
 	c002: 3,
 	c003: 1
 }
-``
+```
+## any
+타입스크립트를 사용하는이유는 오류를 미리발견하는것
+```ts
+// 이런식으로 js 똑같이 할수있지만 의미가없다. 그래서 되도록 사용하지않는것 
+const product: any {
+.../// 
+}
+
+// 물론 파싱할때 any가 들어가는 경우가 있지만 이마저도 타입을 정해주는것이 좋다.
+// 어쩔수 없이 몰라서 any타입이 적히는 경우도 많고
+const paresedProduct: {
+	name: string;
+	price: number;
+} = JSON.parse(
+	"{ "name": "코드잇 토트백", "price": 12000 }"
+);
+// 아니면 이런식으로 추론시킬수있다.
+const paresedProduct = JSON.parse(
+	"{ "name": "코드잇 토트백", "price": 12000 }"
+) as {
+	name: string;
+	price: number;
+}
+// 꺽쇠도 사용가능한데 프론트엔드에서 꺽쇠를 많이쓰는 추세로 이제는 문법때문에 사용하지는않음
+const paresedProduct = <{
+	name: string;
+	price: number;
+}>JSON.parse(
+	"{ "name": "코드잇 토트백", "price": 12000 }"
+);
+```
+
+## 함수에 타입 정의하기
