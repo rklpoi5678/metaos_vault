@@ -173,5 +173,36 @@ const parsedProduct = JSON.parse('{ "name": "코드잇 토트백", "price": 1200
 
 ```
 ```ts
+const parsedProduct: { name: string; price: number } = JSON.parse('{ "name": "코드잇 토트백", "price": 12000 }');
 
+```
+
+**function type**
+리턴 타임을 지정하는 경우에는 다음 코드처럼
+```ts
+function addToCard(id: string, quanity: number): boolean {
+	if (...) {
+		return false;	
+	}
+	
+	return true;
+}
+```
+리턴 타입을 미리 주지 않고 리턴 값으로부터 추론하게 할 수 있다.
+```ts
+function addToCart(id: string, quanity: number) {
+	if (...) {
+		return false;	
+	}
+	
+	return true
+}
+```
+함수를 값으로 사용하는 경우 화살표 함수처럼 작성
+```ts
+(id: string, quanity: number) => boolean
+```
+Rest파라미터는 배열 타입으로 쓴다. 값을 리턴하지 않는 경우 리턴 타입을 Void 로 할수있다.
+```ts
+(...ids: string[]) => void;
 ```
