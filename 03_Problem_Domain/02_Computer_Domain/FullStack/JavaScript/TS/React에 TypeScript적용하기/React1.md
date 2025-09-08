@@ -36,3 +36,40 @@ function handleClick(e: Event) {
 .d.ts파일은 자바스크립트 없이 타입스크립트로만 타입정의를 모아놓은 파일이다.
 
 ## 컴포넌트
+```tsx
+interface Props {
+  className?: string,
+  id?: string,
+  children?: ReactNode, //내려주는 children은 리액트에서 지원해주는 ReactNode타입을 기억해놓자.
+  onClick: any;
+}
+```
+
+```tsx
+// 자주는 아니지만 종종 유용하게 사용
+// HTMLAttributes만 쳐도 리액트에서 지원해주는 기본 돔타입을 자동완성으로 볼수있다.
+// 재네릭으로 타입을 지정할수있다.
+interface Props extends InputHTMLAttributes<HTMLInputElement> {}
+```
+
+##  Hook
+리액트 훅에 타입을 지정하는법
+```tsx
+// 이렇게 지정해주면된다. 보통은 추론이잘된다.
+useState<{
+	username: string;
+	password: string;
+}> ({
+	username: '',
+	password: '',
+}) 
+// 빈배열인경우 never가 추론된다. naver은 절대적으로 있을수없는값을 나타낸다.
+const [names, setNames] = useState([]) // 이런경우는 아래처럼 명시적으로 나타냄
+const [names, setNames] = useState<string[]>([])
+
+// useRef의 경우 해당하는 돔노드 타입을 지정해주면됩니다.
+const formRef = useRef<HTMLFormElement>(); // 이런식일경우 null,undefined가 유니온으로 붙어서 오류가나올수있다 이럴때는 기본값을 맞춰주면된다.
+ const formRef = useRef<HTMLFormElement>(null);
+ 
+ // useEffect의 경우 타입을 정의할일이 거의 없으니 패스
+```
