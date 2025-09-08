@@ -15,3 +15,4 @@ function handleClick(e: MouseEvent<HTMLMouseElement>) {
 function handleClick(e: SyntheticEvent) {
 }
 ```
+
