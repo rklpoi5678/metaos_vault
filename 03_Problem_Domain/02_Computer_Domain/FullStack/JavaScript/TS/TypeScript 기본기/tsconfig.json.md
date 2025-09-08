@@ -70,4 +70,26 @@ import data from 'data.json';
 
 `include`와`exclude`: tsc로 트랜스파일할 때 포함될 경로와 포함되지 않을 경로를 정해줄수있다. 배열로 경로 패턴을 적어주면된다.
 
-VSCODE에서는 자동완성 기능으로 작성할수있는데, 무엇을 작성해야할지 모를 때 Windows에서는 Ctrl  + I, macOS에서는 
+VSCODE에서는 자동완성 기능으로 작성할수있는데, 무엇을 작성해야할지 모를 때 Windows에서는 Ctrl  + I, macOS에서는 Cmd + I 를 입력하면 Suggestion이  뜹니다.
+프로젝트를 개발할 떄에는 이기능을 활성하는것을 추천
+
+## tsconfig.json 파일 불러오기
+```json
+{
+	"extends": "<설정 파일 경로>"
+}
+```
+
+**tsconfig/bases 예시**
+tsconfig.json설정을 모아놓은 tsconfig/bases 리포지토리에 있는 설정  파일을 패키지로 설치한 다음, 불러와서 사용
+> npm install --save-dev @tsconfig/recommended
+
+```json
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+  }
+}
+
+```
+이런식으로 extends옵션을 사용하면 패키지로  설치한 tsconfig.json파일을 불러올 수도 있고,  직접  만든 tsconfig.json 파일을 불러올 수도 있다.'
