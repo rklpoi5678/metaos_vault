@@ -35,3 +35,39 @@ macOS,Window운영체제등  대소문자 구분을 명확하게  하겠다는  
 
 strict: 엄격한 규칙들 켜기
 - noImplicitAny: 아무 타입을 직접 정의하지 않고, 타입 추론도 되지 않는 상태를 implicit any라고 하는데 쉽게 말해 기존 자바스크립트 코드처럼 타입 없이 사용하는 걸 implicit any라고 합니다.
+```ts
+function printSize(product) {
+						~~~~~~ 타입 정의도 없고 추론할 수도 없음
+	console.log(product.size);
+}
+```
+기존  자바 스크립트로 만든 프로젝트를 타입스크립트로 옮기는  중이라면 이 옵션을 잠시 끄는 것도 좋다. 
+```json
+"strict": true,
+"noImplicitAny": false,
+```
+-  strictNullChecks: null이 될 가능성이 있다면  반드시 처리하도록 하는 옵션이다. 되도록  켜놓는것을 추천한다.
+```ts
+// null로 추론될수있으니 런타임때 오류가날수있다.
+let num: number | null;
+// ...
+num -= 1;
+```
+- skipLibCheck: 설치한 패키지의 타입 검사하지 않기
+node_modules폴더에 설치된 패키지들의 타입검사를 하지 않는 옵션이다. 패키지  개발 과정에서 대부분 타입 검사가 이뤄지기 때문에, 중복으로 하지 않아도된다.
+
+`rootDir`: 최상위 폴더
+
+`outDir`: 자바스크립트 파일을 생성할 폴더
+디렉토리 구조에 따라서 자바스크립트 파일을  만듭니다. 값을 지정하지 않을시 소스코드 파일과 같은 폴더에 자바스크립트 파일을 만든다.
+
+- resolveJsonModule: JSON파일 임포트하기
+제이슨 파일을 임포트해서 사용하고 싶다면 이 옵션을 켜야 한다.
+```js
+import data from 'data.json';
+//...
+```
+
+`include`와`exclude`: tsc로 트랜스파일할 때 포함될 경로와 포함되지 않을 경로를 정해줄수있다. 배열로 경로 패턴을 적어주면된다.
+
+VSCODE에서는 자동완성 기능으로 작성할수있는데, 무엇을 작성해야할지 모를 때 Windows에서는 Ctrl  + I, macOS에서는 
