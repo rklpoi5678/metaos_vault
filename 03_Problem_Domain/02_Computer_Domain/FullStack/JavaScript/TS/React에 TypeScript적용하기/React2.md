@@ -8,7 +8,7 @@ function handleChange(e: ChangeEvent<HTMLInputElement>) {
 }
 
 // 만약 버튼이벤트에 아무런 기능이없고 필요가없다싶으면 이렇게 하는것도 좋지만 
-function handleClick(e: MouseEvent<HTMLMouseElement>)  {
+function handleClick(e: MouseEvent<HTMLMouseElement>) {
 }
 
 // react에서 제공하는 SyntheticEvent도 있다. UI관련해서  조상격인 타입이다.
