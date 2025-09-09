@@ -65,3 +65,54 @@ useQuery({ queryKey: ['posts', userEmail, username], ... });
 useQuery({ queryKey: ['posts', undefined, userEmail, username], ... });
 
 ```
+
+## 자주 쓰는 옵션과 리턴 값
+```js
+const { error, isError } = useQuery({
+	queryKey: ['posts'],
+	queryFn: async (key) => {
+		throw new Error("An  error  occurred!');	
+	},
+})
+
+console.log(error);
+console.log(isError);
+```
+error발생시  isError라는 객체의 값이 트루
+에러는 값에서 우리가 설정한 에러메시지를 확인할수있다.
+적절한 에러를 보여주는것으로 구현할수있겠다.
+
+### **로딩과 에러 처리 구현**
+isPending과 isError을 이용해 로딩과 에러처리를 구현
+reactquery에서는 기본 3회 재시도 테스트할시 0으로 조정하면 에러화면을 더빨리볼수있음
+```js
+function HomePage() {
+	const {
+		data: postsData,
+		isPending,
+		isError,	
+	} = useQuery({
+		queryKey: ['posts'],
+		queryFn: getPosts,
+		retry: 0,	
+	});
+	
+	if(isPending) return '로딩 중입니다...';
+	
+	if(isError) return '에러가 발생했습니다.';
+	
+	const posts = postsData?.results ?? [];
+	
+	return (
+		<div>
+			<ul>
+				{posts.map((post) = (
+					<li key={post.id}>
+						{post.user.name} {post.content}	
+					</li>	
+				))}	
+			</ul>	
+		</div>	
+	)
+}
+```
