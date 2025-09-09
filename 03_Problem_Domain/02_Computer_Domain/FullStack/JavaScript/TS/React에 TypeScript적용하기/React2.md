@@ -15,4 +15,9 @@ function handleClick(e: MouseEvent<HTMLMouseElement>) {
 function handleClick(e: SyntheticEvent) {
 }
 ```
+## Context
+```tsx
+import { createContext, useContext, useState } from 'react';
 
+type Locale = en |  
+```
