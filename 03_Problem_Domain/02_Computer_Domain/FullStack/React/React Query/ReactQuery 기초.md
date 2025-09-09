@@ -35,4 +35,7 @@ export default function HomePage;
 data는 우리가 받아온 벡엔드 데이터들이 들어있다. 리스폰스 바디로 받은 데이터가 객체로 되어있고, 페이지네이션에 필요한 정보들과 함께 results란 항목에 실제 포스트 데이터가 배열로 들어아가있다.
 
 데이터를 받아온 시간
- dataUpdatedAt이라는 항목. 현재의 데이터를 받아온 시간을 나타내는항목
+ dataUpdatedAt이라는 항목. 현재의 데이터를 받아온 시간을 나타내는항목. 이사간을  기준으로 언제 데이터를  refetch할 것인지를 정한다.
+
+다양한 상태 정보
+`isError,isFetched,isPending,isPaused,isSuccess`와 같은 다양한 상태 정보도 확인해볼수있다. status라는 항목에는 success라고 적혀있는데 데이터를 성공적으로 받아왔다는 뜻이다.
