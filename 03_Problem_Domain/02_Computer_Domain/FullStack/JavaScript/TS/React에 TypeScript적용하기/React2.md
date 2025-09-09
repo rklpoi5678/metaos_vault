@@ -122,3 +122,13 @@ declare module '*.jpeg' {
 }
 
 ```
+
+## 정리
+htmltype
+HTMLElement Type
+```tsx
+const usernameInput = document.getElementById('username') as HTMLInputElement;
+const submitButton = document.getELementById('submit') as HTMLButtonElement;
+```
+event type
+기본적으로 Event타입을 쓸수있고 구체적으로는  ~Event로 끝나는 타입을 활용하면 된다.
