@@ -35,4 +35,41 @@
 5. 각각  `refetchOnMount, refetchOnWindowFocus, refetchOnReconnect, refetchInteval`
 
 ### **Stale  Time**
-디폴트 값으로 stale time이 0으로 설정되어 있다.
+디폴트 값으로 stale time이 0으로 설정되어 있다. 그렇기 때문에  모든 데이터는 백엔드에 막 받아왔어도 바로 stale상태가 된다. 계속 refech됨
+구현하려는 사이트 특성상 이 값을 변경해주면된다.
+### **Garbage Collection Time**
+필요없어진 데이터를 알아서 해준다. inactive상태의 데이터는 GcTime이 지나면 캐시에서 삭제된다.
+기본적으로 5분으로 설정되어있는데 이역시 변경해줄수있다.
+
+라이프사이클
+![[Pasted image 20250909150330.png]]
+
+### **라이프사이클 시간 설정하기**
+```js
+function HomePage() {
+	const result = useQuery({
+		queryKey: ['posts'],
+		queryFn: getPosts,
+		staleTime: 60 *1000,
+			gcTime: 60 * 1000 * 10,	
+	});
+}
+```
+staleTime,gcTime 은 밀리초가 기준이기에 1000이  1초이다. 1분은 60초니 60을 곱하고, gcTime은 10분으로 설정해둔 예제이다.
+
+**퀴즈 해설**
+> Query status가 `pending`일 때 fetch status도 항상 `fetching` 상태가 된다. (X)
+
+기본 네트워크 모드에서는 쿼리가 처음 실행될 때 오프라인 상태라면 Fetch status는 `paused`가 될 수 있습니다.
+
+> 처음 서버에서 데이터를 받아왔을 때는 언제나 `fresh` 상태이다. (X)
+
+기본 설정은 `staleTime`이 0 이므로 서버에서 데이터를 받아왔더라도 바로 `stale` 상태가 됩니다.
+
+> `useQuery()`가 실행되면 항상 쿼리 함수가 실행되어 데이터를 refetch 한다. (X)
+
+데이터가 `stale` 상태일 때에만 refetch를 진행합니다.
+
+++  검색
+next.js에서 클라이언트  사이드는 React  Query
+서버 컴포넌트에서는 일반 Fetch를 사용하는것을 추천한다.
