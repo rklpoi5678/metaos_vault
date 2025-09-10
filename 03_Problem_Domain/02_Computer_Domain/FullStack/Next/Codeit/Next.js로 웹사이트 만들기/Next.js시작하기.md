@@ -37,3 +37,32 @@ export default function Home() {
 이것을 넥스트에서는 파라미터로 정의한다.
 export default로 만들면 페이지가된다.
 
+## Link 컴포넌트
+link컴포넌트를 사용하면 필요한부분만 사용하기떄문에, 내부적으로a태그보다 최적화가 되어있다.
+```jsx
+import Link from 'next/link';
+import styles from '@/styles/Home.module.css';
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Codeitmall</h1>
+      <ul>
+        <li>
+          <a href="/products/1">첫 번째 상품</a>
+        </li>
+        <li>
+          <a href="/products/2">두 번째 상품</a>
+        </li>
+        <li>
+          <a href="/products/3">세 번째 상품</a>
+        </li>
+        <li>
+          <a href="https://codeit.kr">코드잇</a>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+```
