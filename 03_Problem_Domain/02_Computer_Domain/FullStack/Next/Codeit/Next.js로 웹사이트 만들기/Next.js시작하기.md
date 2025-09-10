@@ -12,6 +12,9 @@ Next.js 장점
 ## CSS 적용하기
 ```jsx
 import styles from '../styles/Home.module.css';
+// global.css: 여거서 쓰면 전역으로 스타일을 넣을수있다.
+// @을 쓰면 최상위에서 사용할수있다.
+import '@/styles/global.css';
 
 export default function Home() {
 	return (
@@ -21,3 +24,8 @@ export default function Home() {
 	)
 }
 ```
+
+경로에 맞게 페이지를 보내주는것을 라우터라고 한다. 바꿔끼울수있다.
+
+## 파일시스템 기반  라우팅이란?
+라우팅: 어떤 줏
