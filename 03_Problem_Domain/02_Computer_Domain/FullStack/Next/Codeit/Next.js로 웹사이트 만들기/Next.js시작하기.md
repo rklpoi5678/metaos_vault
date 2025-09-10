@@ -116,6 +116,54 @@ export default function SearchForm({ initialValue = '' }) {
 // search.js
 	<h1></h1>
 	<SearchForm initialValue={q} />
-	<h2> {q} 검색 쿼리
+	<h2> {q} 검색 쿼리 </h2>
+
+```
+
+## API연동하기
+```js
+import axios from 'axios';
+
+const instace = axios.create({
+	baseUrl: 'https://learn.codeit.kr/api/codeitmall',
+});
+
+export default instance;
+```
+```js
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import axios from '@/lib/axios';
+
+export default function  Product() {
+	const [product, setProduct] = useState();
+	const router = useRouter();
+	const { id } = router.query
+	
+	async function getProduct(targetId) {
+		const res = await axios.get(`/products/${targetId}`);
+		const nextProduct = res.data;
+		setProduct(nextProduct);
+	}
+	
+	useEffect(() => {
+		if (!id) return;	
+		
+		getProduct(id);
+	}, [id])
+	
+	if (!product) return null;
+	
+	return (
+		<div>
+			<h1>{product.name}</h1>	
+			<img
+				src={product.imgUrl}
+				alt={product.name}
+			/>
+		</div>	
+	); 
+}
+
 
 ```
