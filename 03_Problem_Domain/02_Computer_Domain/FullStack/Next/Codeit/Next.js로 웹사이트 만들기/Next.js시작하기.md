@@ -66,7 +66,6 @@ export default function Home() {
   );
 }
 ```
-
 ## useRouter:  쿼리 사용하기
 ```js
 import { useRouter } from 'next/router';
@@ -77,4 +76,46 @@ export default function Home()  {
 	
 	return <div>Product {id} 페이지</div>;
 }
+```
+## useRouter: 페이지 이동하기
+```js
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+
+export default function SearchForm({ initialValue = '' }) {
+  const router = useRouter();
+  const [value, setValue] = useState(initaialValue);
+
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    if(!value) {
+		router.push('/'); 
+		retrun;
+    }
+    router.push(`/search?q=${value}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input name="q" value={value} onChange={handleChange} />
+      <button>검색</button>
+    </form>
+  );
+}
+
+// index.js
+<>
+	<h1></h1>
+	<SearchForm />
+	...
+// search.js
+	<h1></h1>
+	<SearchForm initialValue={q} />
+	<h2> {q} 검색 쿼리
+
 ```
