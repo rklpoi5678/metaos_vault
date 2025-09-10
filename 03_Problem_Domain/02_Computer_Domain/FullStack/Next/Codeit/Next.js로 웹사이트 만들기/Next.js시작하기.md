@@ -165,5 +165,16 @@ export default function  Product() {
 	); 
 }
 
+// 리퀘스트는 useEffect 에서 하면 된다.
 
+```
+```js
+
+const router = useRouter()
+const q = router.query['q'];
+
+// 쿼리 파라미터가 변할때마다 동작
+useEffect(() => {
+	searchValue(q)
+},[q])
 ```
