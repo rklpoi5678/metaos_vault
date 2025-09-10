@@ -39,6 +39,7 @@ export default로 만들면 페이지가된다.
 
 ## Link 컴포넌트
 link컴포넌트를 사용하면 필요한부분만 사용하기떄문에, 내부적으로a태그보다 최적화가 되어있다.
+일반 a태그는 풀리로드 한다.
 ```jsx
 import Link from 'next/link';
 import styles from '@/styles/Home.module.css';
@@ -49,20 +50,31 @@ export default function Home() {
       <h1>Codeitmall</h1>
       <ul>
         <li>
-          <a href="/products/1">첫 번째 상품</a>
+          <Link href="/products/1">첫 번째 상품</a>
         </li>
         <li>
-          <a href="/products/2">두 번째 상품</a>
+          <Link href="/products/2">두 번째 상품</a>
         </li>
         <li>
-          <a href="/products/3">세 번째 상품</a>
+          <Link href="/products/3">세 번째 상품</a>
         </li>
         <li>
-          <a href="https://codeit.kr">코드잇</a>
+          <Link href="https://codeit.kr">코드잇</a>
         </li>
       </ul>
     </div>
   );
 }
+```
 
+## useRouter:  쿼리 사용하기
+```js
+import { useRouter } from 'next/router';
+
+export default function Home()  {
+	const router = useRouter();
+	const { id } = router.query;  //라우터에서 id라는 값을 가져온다.
+	
+	return <div>Product {id} 페이지</div>;
+}
 ```
