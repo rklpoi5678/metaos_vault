@@ -242,3 +242,132 @@ Content-Type: application/json
 // put response example
 [1,2,3]
 ```
+
+## 라우팅 정리
+`Link`컴포넌트
+a태그는 페이지 전체를  다시 로딩하기 떄문에 속도가 느리고, 빈  화면이 잠깐 보이면서 깜빡거림이  생기고, Link컴포넌트는 Next.js내부적으로 여러가지 최적화를 해주기에 빠르고 부드러운 페이지 전환이 가능하다.
+```js
+import Link from 'next/link';
+
+export default Page() {
+	return <Link href="/">홈페이지로 이동</Link>
+}
+```
+`useRouter() Hook`
+쿼리 사용하기
+pages/products/\[id].js 페이지에서 `router.query['id']`값으로 Params id에 해당하는 값을  가져올수있다.
+```js
+import { useRouter } from 'next/router';
+
+export default function Product() {
+	const router = useRouter();
+	const id = router.query['id'];
+	
+	return <>Product #{id} 페이지</>
+}
+```
+/search?q=티셔츠 같은 주소로 들어왔을때 라우터 쿼리에 맞는 스트링값을 가져올수있다.
+```js
+import { useRouter } from 'next/router';
+
+export default function Search() {
+  const router = useRouter();
+  const q = router.query['q'];
+
+  return <>{q} 검색 결과</>;
+}
+
+```
+페이지 이동
+```js
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+
+export default function searchParam() {
+	const [value, setValue] = useState();
+	const router = useRouter();
+
+
+	const handleChange = (e) => {
+		if(e.target.value === '') return;
+		setValue(e.target.value);		
+	}
+	
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if(!value) {
+			return router.push('/');	
+		}	
+		setValue('');
+		return router.push(`/submit?q=${value}`);
+	}
+	
+	return (
+		<form onSubmit={handleSubmit}>
+			<input name="q" value={value} onChange={handleChange} />	
+			<button>검색</button>
+		</form>	
+	)
+}
+```
+
+## redirect()
+next.config.js 특정주소에 대해 리다이렉트할 주소 설정가능
+permanent: talse => 307 true => 308
+```js
+/** @type {import('next').NextConfig}*/
+const nextconfig ={
+	async redirect() {
+		return [
+			{
+				source: '/product/:id',
+				destination: '/images/:id',
+				permanent: true,	
+			},
+		];
+	},
+}
+
+module.exports = nextConfig;
+```
+
+## 커스텀 404페이지
+pages/404.js 파일을 만들고 일반적인 페이지처럼 구현
+
+## 커스텀 App
+모든 컴포에 공통적으로 적용 app컴포넌트 수정,
+Omponent Prop으로 절달되고 내부적으로 필요한 Props는  pageProps라는 값으로 전달
+```js
+//_app.js
+import Header from '@/components/Header';
+import { ThemeProvider } from '@/lib/ThemeContext';
+import '@/styles/globals.css';
+
+export default function App ({ Component, pageProps }) {
+	return (
+		<ThemeProvider>
+			<Header />
+			<Component {...pageProps} />
+		</ThemeProvider>	
+	);
+}
+```
+
+## 커스텀 Document
+useState, useEffect처럼 브라우저에서 실행이 필요한 기능들은 사용불가
+```js
+import { HTML, Head, Main, NextScript } from 'next/document';
+
+export default function Document(){
+	return (
+		<HTML lang="ko">
+			<Head />
+			<body>
+				<Main />
+				<NextScript />	
+			</body>
+		</HTML>	
+	)
+}
+
+```
