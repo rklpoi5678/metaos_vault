@@ -104,3 +104,141 @@ export default function Document() {
 // html의 뼈대를 수정하는 파일
 // useState, useEffect 같은 일반적인 컴포넌트 기능을 사용할수없음의 주의!
 ```
+
+## Context활용하기
+```js
+// ThemeContext.js
+import { createContext, useContext, useEffect, useState } from 'react';
+
+export const ThemeContext = createContext();
+
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.body.classList.add(theme);
+
+    return () => {
+      document.body.classList.remove(theme);
+    }
+  }, [theme]);
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext) {
+    throw new Error('ThemeContext 안에서 써야 합니다');
+  }
+
+  return themeContext;
+}
+// 바디태그를 바꾸고 싶을어도
+// _docuemtn.js에서 컴포넌트함수를 적용할수없기에_
+```
+```js
+// _app.js
+...
+// Provider추가
+<ThemeProvider>
+</ThemeProvider>
+```
+```js
+// TheneContext.js
+export function ThemeProvider({ children }) {
+	const [theme, setTheme] = useState('dark');
+	
+	useEffect(() => {
+		document.body.classList.add(theme);
+		
+		return () => {
+			document.body.classList.remove(theme);	
+		}
+	}, [theme]);
+	
+	return(
+		<ThemeContext.Provider  value=({ theme, setTheme })>
+			{children}	
+		</ThemeContext.Provider>
+	);
+}
+```
+```js
+//  setting.js
+import Dropdown from '@/components/Dropdown';
+import { useTheme } from '@/lib/ThemeContext';
+import styles from '@/styles/Setting.module.css';
+
+export default function Setting() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <div>
+      <h1 className={styles.title}>설정</h1>
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>테마 설정</h2>
+        <Dropdown
+          className={styles.input}
+          name="theme"
+          value={theme}
+          onChange={(name, value) => setTheme(value)}
+          options={[
+            { label: '라이트', value: 'light' },
+            { label: '다크', value: 'dark' },
+          ]}
+        />
+      </section>
+    </div>
+  );
+}
+
+```
+
+```css
+/* 다른 모듈에서 사용할려면 콜론 글로벌을 사용해야한다.*/
+/* module.css에서 제공하는 문법이다. */
+:global(.light) .button {
+	color: #f9f9f9;
+	background-color: #505050;
+}
+```
+
+## API 라우팅
+간단한 백엔드 api만들수있음, 작은 노드 서버 구현 프론트 + 백도 개발하고 싶은 사람들에게 유용한기능
+```js
+//  pages 폴더 아래 //api폴더
+// /pages/api/cart.js
+let cart = [];
+
+export default function handler(req,res) => {
+	if(req.method === 'GET') {
+		return res.status(200).json(cart);	
+	} else if (req.method === 'PUT') {
+		cart = req.body;
+		return res.status(200).json(cart);	
+	} else {
+		return res.status(404);	
+	}
+}
+// export default 로 리퀘,리스 파라미터로 받는 함수를 만들면된다. 노드의 리퀘스트 객체와 리스폰스 객체이다.
+```
+```http
+GET http://localhost:3000/api/cart
+Content-Type: application/json
+
+// response example
+[]
+
+PUT http://localhost:3000/api/cart
+Content-Type: application/json
+
+[1,2,3]
+
+// put response example
+[1,2,3]
+```
