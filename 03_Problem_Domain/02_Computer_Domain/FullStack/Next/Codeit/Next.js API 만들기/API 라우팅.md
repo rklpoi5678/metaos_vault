@@ -28,14 +28,67 @@ GET https;//.... .com/api/123
 ## 리퀘스트 다루기
 ```js
 export default function handler(request, response) {
-	response.send(req,query)
+	response.send(req.query)
 	// id값으로 123이 들어올것이다. 파람스로 사용가능해집니다.
 	// 쿼리스트링이 있다면 해당 쿼리도 같은 객체에 담기게된다.
 }
 
 export default function handler(request, response) {
-	response.send(req,body)
-	
+	response.send(req.body)
+	// request로 오는 바디값을 알수있다.	
 	// POST ....
+}
+
+export default function handler(request, response) {
+	response.send(req.cookies)
+	// request로 오는 쿠키값을 알수있다.	
+}
+
+export default function handler(request, response) {
+	response.send(req.method)
+	// request로 오는 메서드(GET..POST...)을 알수있다.	
+}
+
+// switch문으로 메서드별로 설정해줄수도있다.
+export default function handler(request, response) {
+	switch(req.method) {
+		CASE 'PATCH':
+			res.send('short Link 수정);	
+			break;
+	}
+}
+```
+
+## 리스폰스 다루기
+```js
+export default function handler(req, res) {
+	switch(req.method) {
+		CASE 'POST':
+			res.status(201).send({
+				title: 'wike Next.js',
+				url: 'https://....',	
+			});
+			break;
+			
+		CASE 'GET':
+			res.send([
+				{
+					id: 'abc',
+					title: 'wike Next.js',		
+					url: 'https:....'	
+				},
+				{
+					id: 'abc',
+					title: 'wike Next.js',		
+					url: 'https:....'	
+				}
+			]);
+			break;
+			
+		default: 
+		// 메소드에 메소드를  메소드체이닝이라고한다.
+		// 메소드의 객체값이 메소드그 자체라서 체이닝을할수있다.
+			res.status(404).send();
+	}
 }
 ```
