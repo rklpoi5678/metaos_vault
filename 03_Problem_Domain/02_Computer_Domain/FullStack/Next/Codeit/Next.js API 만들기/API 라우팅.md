@@ -102,3 +102,12 @@ export default async function  handler(req,res) {
 	...
 }
 ```
+- method: 문자열, 리퀘스르로 들어온 메소드값
+- query: 객체, 쿼리 스트링이나 Next.js에서 사용하는  Params값이  들어있는 객체
+- body: 자유로움, 리퀘스트의 바디 값
+- cookies: 객체, 리퀘스트의 쿠키가 키/밸류로 들어있는 객체
+
+## 리스폰스 객체
+함수 체이닝 방식으로 사용하기 떄문에 `res.status(201).send()` 처럼 함수를 이어서 사용할수있다.
+- status(): 함수, 리스폰스로 보낼  HTTP상태 코드를 지정
+- send(): 함수, 리스폰스로 보낼 바디를 전달
