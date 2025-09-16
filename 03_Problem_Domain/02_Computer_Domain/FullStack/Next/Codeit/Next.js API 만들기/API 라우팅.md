@@ -92,3 +92,13 @@ export default function handler(req, res) {
 	}
 }
 ```
+
+## 리퀘스트 핸들러 함수
+`/api/short-links`로 들어오는 리케수트르르 처리하려면  
+`/pages/api/short-links.js`
+`/pages/apu/short-links/indes.js`  경로로 파일을 만들고 아래처럼 함수를 default export하면 된다.
+```js
+export default async function  handler(req,res) {
+	...
+}
+```
