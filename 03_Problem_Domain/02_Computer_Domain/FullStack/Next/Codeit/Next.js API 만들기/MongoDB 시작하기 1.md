@@ -25,3 +25,54 @@ export default Home() {
 	)
 }
 ```
+
+## 데이터베이스 연동하기
+```js
+//dbConnect.js
+// 몽구스는 커넥트라는 함수를 사용해서 컬렉션을 만든다.
+// 배포할때 불핖요하게 여러 커넥터를 만들지않기 위해 방어코드를 짜는것을 권장
+// node.js에는 자바의 window와같이 global이라는 것이있다.
+import mongoose from "mongoose";
+declare global {
+  var mongoose: any; // This must be a `var` and not a `let / const`
+}
+
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+async function dbConnect() {
+  const MONGODB_URI = process.env.MONGODB_URI!;
+
+  if (!MONGODB_URI) {
+    throw new Error(
+      "Please define the MONGODB_URI environment variable inside .env.local",
+    );
+  }
+
+  if (cached.conn) {
+    return cached.conn;
+  }
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+      return mongoose;
+    });
+  }
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.conn;
+}
+
+export default dbConnect;
+// 천천히 이해하기
+```
