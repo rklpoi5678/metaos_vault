@@ -45,5 +45,32 @@ export default handler(req,res) {
 }
 ```
 ```js
+// index.js
+...
+	case "GET":
+		const shortLinks = await ShortLink.find();
+		...
+		res.send(shortLinks);
+		break;
+	
+```
 
+## 도큐먼트 수정 삭제하기
+```js
+await dbConnect();
+const {id} = req.query;
+
+switch (req.method){
+	case 'PATCH':
+		const updatedShortLink = await ShortLInk.findByIdAndUpdate(id, req.body);	
+		res.send(updatedShortLink);
+		break;
+		
+		...
+	case 'DELETE':
+		const deleteShortLink = await ShortLink.findByIdAndDelete(id);
+		//res.send();
+		// 삭제가 완료되었다면 204코드를 보냊줌
+		res.status(204).send();
+		break;
 ```
