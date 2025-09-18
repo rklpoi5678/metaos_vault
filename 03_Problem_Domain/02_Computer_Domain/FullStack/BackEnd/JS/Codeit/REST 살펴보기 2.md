@@ -81,6 +81,7 @@ Hypermedia as the engine of application state
 
 ```json
 // 헤이티어스를 만족할려면 동작을 지정해줘야한다.
+// 리스폰스 바디에 상태 변경을 위한 링크 포함
 {
 	"id": 2,
 	"name": "Olivia" ,
@@ -88,5 +89,92 @@ Hypermedia as the engine of application state
 		"href" :  "member/1",
 		"method" : "DELETE"
 	}
+}
+```
+**HAL**
+```json
+{
+// 리소스
+	"id" : 2,
+	"name": "James",
+	// 경로 할을 사용하면 리스폰스바디로로 어떻게 해야하는지 표현할수있다.
+	"_links": {
+		"self": {
+			"href": "https://example.com/members/2",
+			"method": "GET"	
+		}	
+	}
+}
+```
+다른 방법은  링크헤더를 이용하는것이다.
+```html
+<a href="https://asdf..."/>asd</a>
+```
+
+## 자주 하는 실수
+멤버 목록을 가져오는데 API엔드포인트를 POST를 사용하여 구현한 경우
+```http
+POST /memebers
+```
+데이터를 포함하는 엔드포인트를, 겟으로 구현한경우
+```http
+GET /members?username=harry
+```
+> 기록되어야 하지 말아야할 정보가 쿼리 스트링을 통해 브라우저 히스토리에 기록이 남을수있다.
+
+**잘못된 상태코드**
+ 필드의 값을 잘못 전달하여 작업 수행에 실패했지만, 상태코드는 성공인경우
+- 멤버 생성 리퀘스트
+```http
+GET /members
+
+{
+	"username": "Harry",
+	"age": -10,
+}
+```
+- 새로운 멤버의 생성 실패 리스폰스
+```http
+200 ok
+
+{
+	"error": "age must be grater than 0."
+}
+```
+> 정상적인 리퀘스트로 판단해버릴수있다.
+
+**행동을 나타내는 표현이 포함된 URI**
+```
+// bad
+/create-members
+/update-members/1
+/delete-members/2
+```
+```
+// good 
+POST /members
+GET /members/1
+DELETE /members/2
+```
+
+**누락된  MIME Type**
+컨텐츠 타입에 헤더가 없거나 MIME Type 올바르게 지정하지 않으면 서버와 클라이언트가 내용을 잘못 해석할 수 있다. 
+- 새로운 멤버의 생성 리퀘새트ㅡ
+```http
+POST /members
+Content-Type: application/json
+
+{
+	"name": "Harry"
+}
+```
+- 새로운 멤버의 생성 리스폰스
+```
+HTTP/1.1 200 ok
+content-type: application/json
+
+{
+	"id": 2
+	"name": "Harry"
 }
 ```
