@@ -59,4 +59,34 @@
 
 ## 미디어 타입과 링크 헤더
 Content-type: Media Type
-콘텐트타입에는 미디어 타입이 붙었다.
+콘텐트타입에는 미디어 타입이 붙었다.(type/subtype)구조로 되어있다.
+```
+applictation/json, html/text
+```
+ 링크헤더로 문서를 전달하여 해석시킬수있다.
+ 자기 서술적 메시지는 rest api에서 잘지켜지지않는 조건이기도하다.
+ ```http
+ HTTP/1.1 200 ok
+ Link: <https//exaple.com/docs/codeit-members>; rel="profile"
+ {
+	"id": 2,
+	"name": "Olivia" 
+ }
+```
+
+## HATEOAS(헤이티어스)
+Hypermedia as the engine of application state
+하이퍼미디어를 사용한 애플리케이션 상태 표현 및 변경
+어떤 페이지로 어떤 행동을 하는지를 알수있어야한다는것이다.
+
+```json
+// 헤이티어스를 만족할려면 동작을 지정해줘야한다.
+{
+	"id": 2,
+	"name": "Olivia" ,
+	"delete": {
+		"href" :  "member/1",
+		"method" : "DELETE"
+	}
+}
+```
