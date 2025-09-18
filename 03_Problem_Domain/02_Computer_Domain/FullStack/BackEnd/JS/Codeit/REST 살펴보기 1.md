@@ -88,6 +88,23 @@ POST /members
 	"name": "Olivia"
 }
 ```
-
 조작의 표현 HTTP Method
 자원의 표현 JSON
+
+## PUT vs PATCH
+```http
+## PUT일경우 (자원의 교체(replace))
+{
+	"usename": "harry",
+	"age": 30
+}
+
+# request
+{
+	"username": ""
+}
+
+```
+```http
+## PATCH일경우 (부분 수정(partial update))
+```
