@@ -93,18 +93,33 @@ POST /members
 
 ## PUT vs PATCH
 ```http
-## PUT일경우 (자원의 교체(replace))
+아이디가 1인 멤버가 있을때
 {
 	"usename": "harry",
 	"age": 30
 }
 
+## PUT일경우 (자원의 교체(replace))
 # request
 {
-	"username": ""
+	"username": "mike"
+}
+# response
+{
+	"username": "mike"
+	"age" : null
 }
 
 ```
 ```http
 ## PATCH일경우 (부분 수정(partial update))
+# request
+{
+	"username": "mike"
+}
+# response
+{
+	"username": "mike",
+	"age" : 30
+}
 ```
