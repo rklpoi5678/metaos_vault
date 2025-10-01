@@ -52,3 +52,44 @@ const handler:RequestHandler = (req,res,next) => {
 };
 ```
 타입을 외울려고하지말고 어떻게 찾아가는지를 알면 어떤 패키지가  와도 능숙하게 쓸수있다.
+
+## 패키지의 타입 커스텀하기
+![[Pasted image 20251002020623.png]]
+> 이렇게 타입을 새로 커스텀할수있다.
+
+![[Pasted image 20251002020702.png]]
+커스텀 타입이 잘추론
+
+해설
+`declare` 문법으로 `Express`라는 `namespace`에 타입을 지정해 
+```ts
+import Express from 'express';  declare global {
+   namespace Express {
+      }
+}
+```
+
+똑같은 이름의 `interface`를 만들면 이전에 `interface` 로 정의된 타입을 덮어쓸 수 있는데요. `Request` 타입을 덮어쓰려면 아래와 같이 하면 됩니다.
+
+```ts
+import Express from 'express';
+
+declare global {
+	namespace Express {
+		interface Request {
+			valid?: boolean;	
+		}	
+	}
+}
+```
+이제  빌드하면, 스타트하면 잘되지만, 데브를 하면안되는데 (ts_node가 기본적으로 커스텀한 .d.ts파일을 못읽어옴  )
+설정을 해준다.
+```
+
+```tsconfig.json
+"typeRoots" : [
+	"./typings",
+	"./node_modules/@types"
+],
+```
+이런 방식으로 가끔 다른사람의 타입 선언을 수정하거나 커스텀할수있다.
