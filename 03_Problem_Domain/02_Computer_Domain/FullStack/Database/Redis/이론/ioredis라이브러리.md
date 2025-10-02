@@ -125,3 +125,58 @@ setInterval(() => {
 	console.log("Published %s to %s", message, channel);
 }, 1000)
 ```
+```js
+// subscriber.js
+import { Redis } from "ioredis";
+
+const redis = new Redis();
+
+redis.subscribe("my-channel-1", "my-channel-2", (err, count) => {
+	if (err) {
+	// 다른 명령과 마찬가지로 subscribe()는 몇 가지 이유로 실패할 수 있습니다.
+   // ex 네트워크 문제.
+		console.error("Failed to subscribe: s%", err.message);	
+	} else {
+	// 'count'는 이 클라이언트가 현재 구독하고 있는 채널 수를 나타냅니다.
+		console.log(
+	      `Subscribed successfully! This client is currently subscribed to ${count} channels.`
+		);
+	}
+});
+
+redis.on("message", (channel, message) => {
+	console.log(`Received ${message} from ${channel}`);
+});
+	// 'messageBuffer'라는 이벤트도 있는데, 이는 'message'와 동일합니다.
+	// 문자열 대신 버퍼를 반환합니다.
+	// 메시지가 이진 데이터일 때 유용합니다.
+redis.on("messageBuffer", (channel, message) => {
+	console.log(channel, message);
+})
+```
+동시에 두가지 역할을 할수없다. sub/pub을 실행하면 "구독자" 모드로 들어간다. 이 시점부터 구독 세트를 수정하는 명령만 유효하다
+동일한 파일/프로세스에서 pub/sub을 수행하려면 별도의 연결을 만들어야 한다.
+```js
+const Redis = require("ioredis");
+const sub = new Redis();
+const pub = new Redis();
+
+sub.subscribe(/* ... */); // From now, `sub` enters the subscriber mode.
+sub.on("message" /* ... */);
+
+setInterval(() => {
+  // `pub` can be used to publish messages, or send other regular commands (e.g. `hgetall`)
+  // because it's not in the subscriber mode.
+  pub.publish(/* ... */);
+}, 1000);
+```
+
+PSUBSCRIBE는 이름이 패턴과 일치하는 모든 채널을 구독하려는 경우에도 유사한 방식으로 지원한다.
+```js
+redis.psubscribe("pat?ern", (err, count) => {});
+
+// Event names are "pmessage"/"pmessageBuffer" instead of "message/messageBuffer".
+redis.on("pmessage", (pattern, channel, message) => {});
+redis.on("pmessageBuffer", (pattern, channel, message) => {});
+```
+
