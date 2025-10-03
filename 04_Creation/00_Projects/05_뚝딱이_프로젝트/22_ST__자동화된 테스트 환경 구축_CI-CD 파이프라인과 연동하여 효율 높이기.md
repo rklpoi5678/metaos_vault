@@ -99,8 +99,8 @@ jobs:
     # - name: Deploy to Staging
     #   if: success() && github.ref == 'refs/heads/main' # 모든 테스트 통과 & main 브랜치 푸시 시에만 배포
     #   run: |
-    #     # 여기에 배포 스크립트 작성 (예: AWS S3, Vercel, Netlify, Docker Hub 등)
+    #     # 여기에 배포 스크립트 작성 (예: AWS [[[[S3]]]], Vercel, Netlify, Docker Hub 등)
     #     echo "Deploying to staging environment..."
-    #     # 예: aws s3 sync ./build s3://your-staging-bucket --delete
+    #     # 예: aws [[s3]] sync ./build [[s3]]://your-staging-bucket --delete
 ```
 

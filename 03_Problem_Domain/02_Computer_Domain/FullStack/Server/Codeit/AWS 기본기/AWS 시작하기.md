@@ -45,13 +45,13 @@ AWS에서는  정책이란것을 통해 권한을 정의한다.
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::example-bucket/*"
+      "Action": "[[s3]]:GetObject",
+      "Resource": "arn:aws:[[s3]]:::example-bucket/*"
     },
     {
       "Effect": "Deny",
-      "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::example-bucket/*"
+      "Action": "[[s3]]:PutObject",
+      "Resource": "arn:aws:[[s3]]:::example-bucket/*"
     }
   ]
 }
@@ -63,7 +63,7 @@ AWS에서는  정책이란것을 통해 권한을 정의한다.
         - Action: 접근 유형 (Get, Put 등)
         - Effect: 접근을 허용할지 차단할지
         - Resource, Action, Effect 외에도 [다른 요소](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html)들을 통해 세부 사항을 통제할 수 있음.
-> JSON해석하면  S3버킷의 객체를 읽는 것은 허용하지만, 새로운  객체를 추가하는것은 차단한다.
+> JSON해석하면  [[S3]]버킷의 객체를 읽는 것은 허용하지만, 새로운  객체를 추가하는것은 차단한다.
 
 ## IAM 유저 생성하기
 IAM >  사용자  > 사용자 생성 > 사용자 콘솔 > 콘솔에 대한 사용자 엑세스  권한  설정 > 사용자 지정  암호로 원하는 패스워드  설정
