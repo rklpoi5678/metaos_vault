@@ -52,3 +52,8 @@ fetch('https://learn.codeit.kr/api/link-service/auth/login), {
 ![[Pasted image 20251004215552.png]]`
 > 매번 withCredentials를 사용하지않아도된다. constants나 lib에 공통으로 사용하는 것을 넣는다.axios
 > 
+
+## 컨텍스트 유저 데이터 관리하기 2
+유저데이터는 전역적으로 사용하니 컨텍스트로 활용하는편이다.
+
+[[React 유저 기능 구현하기 2]]
