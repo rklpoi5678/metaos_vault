@@ -56,3 +56,46 @@ instance.interceptors.response.use(res => res, async (error) => {
 ## 로그아웃
 HttpOnly 옵션떄문에 js로  토큰값을 수정할수없다는것이 걸린다.
 그래서 반드시 서버에서 처리해야한다.
+
+## 구글 로그인 구현하기
+```js
+        <Button
+          className={styles.GoogleButton}
+          type="button"
+          appearance="outline"
+          as={Link}
+          to="/api/auth/google"
+          reloadDocument --  리액트 라우터에서 이동 시키는것이 아니라 실제 get요청을 보낼수있도록 새로고침하는 옵션이다.
+        >
+          <img src={GoogleImage} alt="Google" />
+          구글로 시작하기
+```
+
+## 워크플로 이해하기
+
+회원가입
+![[Pasted image 20251005001522.png]]
+로그인
+![[Pasted image 20251005001534.png]]
+
+그후 프론트에서 브라우저저장
+
+세션의 경우 백 - 데이터베이스에서 세션상태를 변경하고 200ok를 프론트에 보내줌
+
+유저데이터  가져오기
+![[Pasted image 20251005001548.png]]
+GET /users /me 쿠키와 함계 ->  쿠키를 확인하고(백) , 해당 유저 찾기(백-DB), DB에서 유제 데이터를  보내줌 -> 유저데이터를  리스폰스로 보내줌
+
+로그 아웃
+![[Pasted image 20251005001607.png]]
+Delete /autho/logout -> 쿠키 확인 -> Set-Cookie : 만료된 쿠키를 보내줌
+세션의 경우 데이터베이스에서 세션  상태를 변경합니다. -> 200 ok
+
+토큰 갱신하기
+![[Pasted image 20251005001558.png]]
+인증이 필요한 리퀘스트 -> 실패 -> 상태 코드 401 -> POST / auth/ token/ refresh  -> 토큰 확인 -> 새로운 토큰 생성 -> Set-Cookie: 새로운 토큰으로 리스폰스 해준다.
+
+구글 로그인
+![[Pasted image 20251005001626.png]]
+
+이렇게 그린 그림을  시퀀스 다이어그램이라고한다.
